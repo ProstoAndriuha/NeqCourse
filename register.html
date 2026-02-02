@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înregistrare - NeqCourse</title>
+</head>
+<body>
+    <header>
+        <h1>🎓 NeqCourse</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>📝 Creează Cont Nou</h2>
+            <p>Alătură-te comunității NeqCourse și începe să înveți astăzi!</p>
+
+            <form action="welcome.html" method="post">
+                <fieldset>
+                    <legend>Informații Personale</legend>
+
+                    <table>
+                        <tr>
+                            <td><label for="firstName">Prenume:<sup>*</sup></label></td>
+                            <td><input type="text" id="firstName" name="firstName" required size="30"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="lastName">Nume:<sup>*</sup></label></td>
+                            <td><input type="text" id="lastName" name="lastName" required size="30"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email:<sup>*</sup></label></td>
+                            <td><input type="email" id="email" name="email" required size="30" placeholder="exemplu@email.com"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="username">Nume Utilizator:<sup>*</sup></label></td>
+                            <td><input type="text" id="username" name="username" required size="30" minlength="4" maxlength="20"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Parola:<sup>*</sup></label></td>
+                            <td><input type="password" id="password" name="password" required size="30" minlength="8"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="confirmPassword">Confirmă Parola:<sup>*</sup></label></td>
+                            <td><input type="password" id="confirmPassword" name="confirmPassword" required size="30"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="phone">Telefon:</label></td>
+                            <td><input type="tel" id="phone" name="phone" size="30" placeholder="+40 123 456 789"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="birthdate">Data Nașterii:</label></td>
+                            <td><input type="date" id="birthdate" name="birthdate"></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferințe și Interese</legend>
+
+                    <p><label for="country">Țara:</label></p>
+                    <select id="country" name="country" required>
+                        <option value="">-- Selectează țara --</option>
+                        <option value="ro">România</option>
+                        <option value="md">Republica Moldova</option>
+                        <option value="ua">Ucraina</option>
+                        <option value="ru">Rusia</option>
+                        <option value="other">Alta</option>
+                    </select>
+
+                    <p><strong>Domenii de interes:</strong></p>
+                    <label><input type="checkbox" name="interest" value="web"> Dezvoltare Web</label><br>
+                    <label><input type="checkbox" name="interest" value="data"> Data Science</label><br>
+                    <label><input type="checkbox" name="interest" value="design"> Design UI/UX</label><br>
+                    <label><input type="checkbox" name="interest" value="marketing"> Marketing Digital</label><br>
+                    <label><input type="checkbox" name="interest" value="business"> Business & Management</label><br>
+                    <label><input type="checkbox" name="interest" value="languages"> Limbi Străine</label><br>
+
+                    <p><strong>Experiența ta în învățarea online:</strong></p>
+                    <label><input type="radio" name="experience" value="beginner" checked> Începător - Prima dată când învăț online</label><br>
+                    <label><input type="radio" name="experience" value="intermediate"> Intermediar - Am mai făcut câteva cursuri</label><br>
+                    <label><input type="radio" name="experience" value="advanced"> Avansat - Sunt un cursant activ</label><br>
+
+                    <p><label for="goal">Scopul tău principal:</label></p>
+                    <select id="goal" name="goal">
+                        <option value="">-- Selectează --</option>
+                        <option value="career">Schimbarea carierei</option>
+                        <option value="skills">Dezvoltarea competențelor actuale</option>
+                        <option value="hobby">Hobby / Interes personal</option>
+                        <option value="certification">Obținerea de certificări</option>
+                        <option value="business">Dezvoltarea afacerii proprii</option>
+                    </select>
+
+                    <p><label for="bio">Despre tine (opțional):</label></p>
+                    <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Spune-ne puțin despre tine și ce dorești să realizezi..."></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Termeni și Condiții</legend>
+
+                    <p>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Sunt de acord cu <a href="#terms" target="_blank">Termenii și Condițiile</a><sup>*</sup></label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">Am citit <a href="#privacy" target="_blank">Politica de Confidențialitate</a><sup>*</sup></label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Vreau să primesc newsletter cu cursuri noi și oferte speciale</label>
+                    </p>
+                </fieldset>
+
+                <p><small><sup>*</sup> Câmpuri obligatorii</small></p>
+
+                <p>
+                    <button type="submit">✅ Creează Cont</button>
+                    <button type="reset">🔄 Resetează Formularul</button>
+                </p>
+            </form>
+
+            <hr>
+
+            <p>Ai deja cont? <a href="login.html"><strong>Autentifică-te aici</strong></a></p>
+
+            <hr>
+
+            <section>
+                <h3>Sau înregistrează-te cu:</h3>
+                <ul>
+                    <li><a href="#google">🔴 Google</a></li>
+                    <li><a href="#facebook">🔵 Facebook</a></li>
+                    <li><a href="#github">⚫ GitHub</a></li>
+                    <li><a href="#linkedin">🔷 LinkedIn</a></li>
+                </ul>
+            </section>
+        </section>
+
+        <aside>
+            <h3>🎁 Beneficiile Contului</h3>
+            <ul>
+                <li>✔️ Acces la peste 0 cursuri de calitate</li>
+                <li>✔️ Certificări recunoscute internațional</li>
+                <li>✔️ Învățare în ritmul tău, 24/7</li>
+                <li>✔️ Suport de la instructori experți</li>
+                <li>✔️ Comunitate activă de cursanți</li>
+                <li>✔️ Aplicație mobilă gratuită</li>
+                <li>✔️ Monitorizare progres în timp real</li>
+                <li>✔️ Garanție de returnare 30 de zile</li>
+            </ul>
+        </aside>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+        <p>📧 contact@neqcourse.com</p>
+        <p><a href="index.html">← Înapoi la pagina principală</a></p>
+    </footer>
+</body>
+</html>

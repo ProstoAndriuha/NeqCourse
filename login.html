@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificare - NeqCourse</title>
+</head>
+<body>
+    <header>
+        <h1>🎓 NeqCourse</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>🔐 Autentificare</h2>
+            <p>Intră în contul tău pentru a continua învățarea.</p>
+
+            <form action="dashboard.html" method="post">
+                <fieldset>
+                    <legend>Date de Autentificare</legend>
+
+                    <table>
+                        <tr>
+                            <td><label for="email">Email sau Nume Utilizator:</label></td>
+                            <td><input type="text" id="email" name="email" required size="30"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Parola:</label></td>
+                            <td><input type="password" id="password" name="password" required size="30"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Ține-mă minte</label>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p>
+                        <button type="submit">🔓 Autentifică-te</button>
+                        <button type="reset">🔄 Resetează</button>
+                    </p>
+                </fieldset>
+            </form>
+
+            <hr>
+
+            <p><a href="#reset-password">🔑 Ai uitat parola?</a></p>
+            <p>Nu ai cont? <a href="register.html"><strong>Înregistrează-te acum</strong></a></p>
+
+            <hr>
+
+            <section>
+                <h3>Autentificare cu:</h3>
+                <ul>
+                    <li><a href="#google">🔴 Google</a></li>
+                    <li><a href="#facebook">🔵 Facebook</a></li>
+                    <li><a href="#github">⚫ GitHub</a></li>
+                    <li><a href="#linkedin">🔷 LinkedIn</a></li>
+                </ul>
+            </section>
+        </section>
+
+        <aside>
+            <h3>ℹ️ Sfaturi de Securitate</h3>
+            <ul>
+                <li>Nu împărtăși niciodată parola cu altcineva</li>
+                <li>Folosește o parolă unică și puternică</li>
+                <li>Verifică URL-ul site-ului înainte de a introduce datele</li>
+                <li>Activează autentificarea în doi pași pentru securitate maximă</li>
+            </ul>
+        </aside>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+        <p>📧 contact@neqcourse.com</p>
+        <p><a href="index.html">← Înapoi la pagina principală</a></p>
+    </footer>
+</body>
+</html>
