@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeqCourse - Platforma Ta de Învățare Online</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
     <header>
-        <h1>🎓 NeqCourse</h1>
+        <h1><a href="index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
         <nav>
             <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="courses.html">Cursuri</a></li>
-                <li><a href="login.html">Autentificare</a></li>
-                <li><a href="register.html">Înregistrare</a></li>
+                <li><a href="index.html" class="active">Acasă</a></li>
+                <li><a href="pages/courses.html">Cursuri</a></li>
+                <li><a href="pages/login.html">Autentificare</a></li>
+                <li><a href="pages/register.html">Înregistrare</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Bine ai venit la NeqCourse!</h2>
+    <main class="single-col">
+
+        <!-- Hero -->
+        <section class="hero">
+            <h2><i class="fas fa-graduation-cap"></i> Bine ai venit la NeqCourse!</h2>
             <p>Descoperă lumea cursurilor online de calitate superioară. Învață în ritmul tău, de oriunde din lume.</p>
-            <p><strong>0 cursanți activi</strong></p>
-            <p><strong>0 cursuri profesionale</strong></p>
-            <p><strong>Certificări recunoscute</strong></p>
+            <div class="hero-stats">
+                <span><i class="fas fa-users"></i> 0 Cursanți Activi</span>
+                <span><i class="fas fa-book-open"></i> 0 Cursuri Profesionale</span>
+                <span><i class="fas fa-certificate"></i> Certificări Recunoscute</span>
+            </div>
+            <div class="btn-group" style="justify-content:center; margin-top:1.75rem;">
+                <a href="pages/register.html" class="btn btn-danger">
+                    <i class="fas fa-user-plus"></i> Creează Cont Gratuit
+                </a>
+                <a href="pages/courses.html" class="btn btn-ghost">
+                    <i class="fas fa-search"></i> Explorează Cursurile
+                </a>
+            </div>
         </section>
 
+        <!-- Popular courses table -->
         <section>
-            <h2>📚 Cursuri Populare</h2>
-            <table border="1" cellpadding="10" cellspacing="0">
+            <h2><i class="fas fa-book-open"></i> Cursuri Populare</h2>
+            <table>
                 <thead>
                     <tr>
                         <th>Curs</th>
@@ -44,72 +60,88 @@
                         <td>Dezvoltare Web Full-Stack</td>
                         <td>Prof. Alexandru Popescu</td>
                         <td>12 săptămâni</td>
-                        <td>Intermediar</td>
-                        <td><a href="course1.html">Detalii</a></td>
+                        <td><span class="badge badge-intermediate">Intermediar</span></td>
+                        <td><a href="pages/course1.html" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Detalii</a></td>
                     </tr>
                     <tr>
                         <td>Data Science și Machine Learning</td>
                         <td>Dr. Maria Ionescu</td>
                         <td>16 săptămâni</td>
-                        <td>Avansat</td>
-                        <td><a href="course2.html">Detalii</a></td>
+                        <td><span class="badge badge-advanced">Avansat</span></td>
+                        <td><a href="pages/course2.html" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Detalii</a></td>
                     </tr>
                     <tr>
                         <td>Design UI/UX pentru Începători</td>
                         <td>Ana Georgescu</td>
                         <td>8 săptămâni</td>
-                        <td>Începător</td>
-                        <td><a href="course3.html">Detalii</a></td>
+                        <td><span class="badge badge-beginner">Începător</span></td>
+                        <td><a href="pages/course3.html" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Detalii</a></td>
                     </tr>
                     <tr>
                         <td>Marketing Digital Avansat</td>
                         <td>Ion Vasilescu</td>
                         <td>10 săptămâni</td>
-                        <td>Intermediar</td>
-                        <td><a href="course4.html">Detalii</a></td>
+                        <td><span class="badge badge-intermediate">Intermediar</span></td>
+                        <td><a href="pages/course4.html" class="btn btn-outline" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Detalii</a></td>
                     </tr>
                 </tbody>
             </table>
-            <p><a href="courses.html"><strong>Vezi toate cursurile →</strong></a></p>
+            <div class="btn-group">
+                <a href="pages/courses.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i> Vezi toate cursurile
+                </a>
+            </div>
         </section>
 
+        <!-- Why NeqCourse -->
         <section>
-            <h2>De ce NeqCourse?</h2>
-            <dl>
-                <dt><strong>📱 Învățare Flexibilă</strong></dt>
-                <dd>Accesează cursurile de pe orice dispozitiv, oricând dorești. Învață în ritmul tău.</dd>
-
-                <dt><strong>👨‍🏫 Instructori Experți</strong></dt>
-                <dd>Cursuri predate de profesioniști cu experiență reală în domeniu.</dd>
-
-                <dt><strong>🏆 Certificări Valoroase</strong></dt>
-                <dd>Primește certificări recunoscute la nivel internațional pentru fiecare curs finalizat.</dd>
-
-                <dt><strong>💬 Comunitate Activă</strong></dt>
-                <dd>Conectează-te cu alți cursanți, schimbă idei și colaborează pe proiecte.</dd>
-
-                <dt><strong>📊 Progres Monitorizat</strong></dt>
-                <dd>Urmărește-ți progresul în timp real și primește feedback personalizat.</dd>
-
-                <dt><strong>💰 Preț Accesibil</strong></dt>
-                <dd>Investiție mică pentru o carieră de succes. Garanție de returnare 30 de zile.</dd>
+            <h2><i class="fas fa-star"></i> De ce NeqCourse?</h2>
+            <dl class="features-grid">
+                <div class="feature-card">
+                    <dt><i class="fas fa-mobile-alt"></i> Învățare Flexibilă</dt>
+                    <dd>Accesează cursurile de pe orice dispozitiv, oricând dorești. Învață în ritmul tău.</dd>
+                </div>
+                <div class="feature-card">
+                    <dt><i class="fas fa-chalkboard-teacher"></i> Instructori Experți</dt>
+                    <dd>Cursuri predate de profesioniști cu experiență reală în domeniu.</dd>
+                </div>
+                <div class="feature-card">
+                    <dt><i class="fas fa-trophy"></i> Certificări Valoroase</dt>
+                    <dd>Primește certificări recunoscute la nivel internațional pentru fiecare curs finalizat.</dd>
+                </div>
+                <div class="feature-card">
+                    <dt><i class="fas fa-comments"></i> Comunitate Activă</dt>
+                    <dd>Conectează-te cu alți cursanți, schimbă idei și colaborează pe proiecte.</dd>
+                </div>
+                <div class="feature-card">
+                    <dt><i class="fas fa-chart-line"></i> Progres Monitorizat</dt>
+                    <dd>Urmărește-ți progresul în timp real și primește feedback personalizat.</dd>
+                </div>
+                <div class="feature-card">
+                    <dt><i class="fas fa-tag"></i> Preț Accesibil</dt>
+                    <dd>Investiție mică pentru o carieră de succes. Garanție de returnare 30 de zile.</dd>
+                </div>
             </dl>
         </section>
 
-        <section>
-            <h2>🎯 Începe Astăzi</h2>
+        <!-- CTA -->
+        <section class="hero" style="padding:2.5rem;">
+            <h2 style="font-size:1.6rem;"><i class="fas fa-bullseye"></i> Începe Astăzi</h2>
             <p>Nu mai aștepta! Alătură-te miilor de cursanți care și-au transformat cariera cu NeqCourse.</p>
-            <p>
-                <a href="register.html"><strong>📝 Creează Cont Gratuit</strong></a> sau 
-                <a href="courses.html"><strong>🔍 Explorează Cursurile</strong></a>
-            </p>
+            <div class="btn-group" style="justify-content:center;">
+                <a href="pages/register.html" class="btn btn-danger">
+                    <i class="fas fa-user-plus"></i> Creează Cont Gratuit
+                </a>
+                <a href="pages/courses.html" class="btn btn-ghost">
+                    <i class="fas fa-search"></i> Explorează Cursurile
+                </a>
+            </div>
         </section>
+
     </main>
 
-    <hr>
-
     <footer>
-        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
         <nav>
             <ul>
                 <li><a href="#despre">Despre Noi</a></li>
@@ -118,7 +150,9 @@
                 <li><a href="#politica">Politica de Confidențialitate</a></li>
             </ul>
         </nav>
-        <p>📧 contact@neqcourse.com</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
     </footer>
+
 </body>
 </html>

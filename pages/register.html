@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înregistrare - NeqCourse</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="../index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html" class="active">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                    <li>Înregistrare</li>
+                </ol>
+            </nav>
+
+            <h2><i class="fas fa-user-plus"></i> Creează Cont Gratuit</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem;">30 secunde — fără card bancar necesar.</p>
+
+            <!-- SOCIAL QUICK REGISTER -->
+            <div class="reg-quick">
+                <a href="#google" class="btn-social google btn-social-lg"><i class="fab fa-google"></i> Continuă cu Google</a>
+                <a href="#facebook" class="btn-social facebook btn-social-lg"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#github" class="btn-social github btn-social-lg"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="reg-divider"><span>sau cu email</span></div>
+
+            <!-- MAIN FORM — only 3 required fields -->
+            <form action="welcome.html" method="post" novalidate class="reg-form">
+
+                <div class="form-group-full">
+                    <label for="email"><i class="fas fa-envelope"></i> Adresă Gmail <sup>*</sup></label>
+                    <div class="input-icon-wrap">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="numetau@gmail.com" autocomplete="email">
+                    </div>
+                    <span class="form-hint">Folosit pentru autentificare și notificări.</span>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group-full">
+                        <label for="password"><i class="fas fa-lock"></i> Parolă <sup>*</sup></label>
+                        <div class="input-icon-wrap">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" required minlength="8" placeholder="min. 8 caractere" autocomplete="new-password">
+                        </div>
+                        <div class="pw-strength" id="pwBar" data-level="0"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="form-group-full">
+                        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmă Parola <sup>*</sup></label>
+                        <div class="input-icon-wrap">
+                            <i class="fas fa-lock-open"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Repetă parola" autocomplete="new-password">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MANDATORY TERMS -->
+                <div class="reg-terms">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms" required>
+                        Sunt de acord cu <a href="#terms"><strong>Termenii</strong></a> și <a href="#privacy"><strong>Politica de Confidențialitate</strong></a> <sup>*</sup>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="age" required>
+                        Confirm că am cel puțin <strong>16 ani</strong> <sup>*</sup>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="newsletter" checked>
+                        Vreau să primesc oferte și cursuri noi (opțional)
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-rocket"></i> Creează Contul Gratuit
+                </button>
+
+                <p style="text-align:center; margin-top:1rem; font-size:0.88rem; color:var(--text-muted);">Ai deja cont? <a href="login.html"><strong>Autentifică-te</strong></a></p>
+            </form>
+
+            <!-- OPTIONAL PROFILE — collapsible -->
+            <details class="reg-optional">
+                <summary><i class="fas fa-sliders-h"></i> Completează profilul (opțional) <span class="badge badge-beginner" style="font-size:0.72rem; padding:0.15rem 0.55rem;">opțional</span></summary>
+
+                <form method="post" novalidate style="margin-top:1.25rem;">
+
+                    <fieldset>
+                        <legend><i class="fas fa-user"></i> Date Personale</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Prenume</label>
+                                <div class="input-icon-wrap"><i class="fas fa-user"></i><input type="text" id="firstName" name="firstName" placeholder="Ion" autocomplete="given-name"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nume</label>
+                                <div class="input-icon-wrap"><i class="fas fa-user"></i><input type="text" id="lastName" name="lastName" placeholder="Popescu" autocomplete="family-name"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <div class="input-icon-wrap"><i class="fas fa-phone"></i><input type="tel" id="phone" name="phone" placeholder="+373 60 123 456"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate">Data Nașterii</label>
+                                <input type="date" id="birthdate" name="birthdate" max="2010-01-01">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gender">Gen</label>
+                                <select id="gender" name="gender">
+                                    <option value="">-- Selectează --</option>
+                                    <option>Masculin</option><option>Feminin</option><option>Prefer să nu precizez</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Țara</label>
+                                <select id="country" name="country">
+                                    <option value="">-- Selectează --</option>
+                                    <option value="md">Republica Moldova</option>
+                                    <option value="ro">România</option>
+                                    <option value="ua">Ucraina</option>
+                                    <option value="de">Germania</option>
+                                    <option value="gb">Marea Britanie</option>
+                                    <option value="us">Statele Unite</option>
+                                    <option value="other">Altă țară</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="avatar">Fotografie de Profil</label>
+                        <input type="file" id="avatar" name="avatar" accept="image/png,image/jpeg,image/webp" style="padding:0.3rem 0; border:none;">
+                        <span class="form-hint">JPG / PNG / WebP · max. 2 MB</span>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><i class="fas fa-graduation-cap"></i> Informații Academice</legend>
+                        <label for="university">Universitate</label>
+                        <div class="input-icon-wrap">
+                            <i class="fas fa-university"></i>
+                            <input type="text" id="university" name="university" placeholder="ex.: Universitatea ANU" list="university-list">
+                        </div>
+                        <datalist id="university-list">
+                            <option value="Universitatea Național ANU">
+                            <option value="Universitatea de Stat din Moldova (USM)">
+                            <option value="Universitatea Tehnică a Moldovei (UTM)">
+                            <option value="Academia de Studii Economice (ASEM)">
+                            <option value="Universitatea Politehnica București">
+                            <option value="Altă instituție">
+                        </datalist>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="faculty">Facultate</label>
+                                <div class="input-icon-wrap"><i class="fas fa-building"></i><input type="text" id="faculty" name="faculty" placeholder="ex.: Informatică"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="studyYear">Anul de Studii</label>
+                                <select id="studyYear" name="studyYear">
+                                    <option value="">-- An --</option>
+                                    <option value="1">Anul 1 — Licență</option>
+                                    <option value="2">Anul 2 — Licență</option>
+                                    <option value="3">Anul 3 — Licență</option>
+                                    <option value="4">Anul 4 — Licență</option>
+                                    <option value="master1">Anul 1 — Master</option>
+                                    <option value="master2">Anul 2 — Master</option>
+                                    <option value="alumni">Absolvent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="studentId">Număr Matricol (pentru reducere studențească)</label>
+                        <div class="input-icon-wrap"><i class="fas fa-id-card"></i><input type="text" id="studentId" name="studentId" placeholder="ex.: S2024001234"></div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><i class="fas fa-brain"></i> Preferințe de Învățare</legend>
+                        <label>Nivel experiență:</label>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem 1.5rem; margin-bottom:0.75rem;">
+                            <label class="radio-label"><input type="radio" name="experience" value="none"> Fără experiență</label>
+                            <label class="radio-label"><input type="radio" name="experience" value="beginner" checked> Începător</label>
+                            <label class="radio-label"><input type="radio" name="experience" value="intermediate"> Intermediar</label>
+                            <label class="radio-label"><input type="radio" name="experience" value="advanced"> Avansat</label>
+                        </div>
+                        <label for="goal">Obiectiv principal:</label>
+                        <select id="goal" name="goal">
+                            <option value="">-- Selectează --</option>
+                            <option value="career">Schimbarea carierei</option>
+                            <option value="skills">Dezvoltarea competențelor</option>
+                            <option value="hobby">Hobby</option>
+                            <option value="certification">Certificări</option>
+                            <option value="freelance">Freelancing</option>
+                            <option value="portfolio">Portofoliu</option>
+                        </select>
+                        <label style="margin-top:0.75rem;">Domenii de interes:</label>
+                        <div class="interest-grid">
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="web" checked> 💻 Web Dev</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="mobile"> 📱 Mobile</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="data"> 📊 Data Science</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="ai"> 🤖 AI / ML</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="design"> 🎨 UI/UX Design</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="cybersec"> 🔒 Cybersecurity</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="cloud"> ☁️ Cloud</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="marketing"> 📢 Marketing</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="business"> 💼 Business</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="db"> 🗄️ Baze de Date</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><i class="fas fa-share-alt"></i> Profil Public</legend>
+                        <label for="bio">Bio (opțional)</label>
+                        <textarea id="bio" name="bio" rows="3" placeholder="Spune-ne ceva despre tine..." style="width:100%;padding:0.65rem 0.95rem;border:1.5px solid var(--gray-300);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;resize:vertical;"></textarea>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="linkedin">LinkedIn</label>
+                                <div class="input-icon-wrap"><i class="fab fa-linkedin"></i><input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com/in/username"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="github">GitHub</label>
+                                <div class="input-icon-wrap"><i class="fab fa-github"></i><input type="url" id="github" name="github" placeholder="github.com/username"></div>
+                            </div>
+                        </div>
+                        <label for="referralCode">Cod Referral (reducere 10%)</label>
+                        <div class="input-icon-wrap"><i class="fas fa-gift"></i><input type="text" id="referralCode" name="referralCode" placeholder="ex.: PROMO-2026" maxlength="20"></div>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-outline" style="margin-top:0.5rem;">
+                        <i class="fas fa-save"></i> Salvează Profilul
+                    </button>
+                </form>
+            </details>
+        </section>
+
+        <aside>
+            <h3><i class="fas fa-gift"></i> Beneficiile Contului</h3>
+            <ul>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces la cursuri gratuite imediat</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> 7 zile de probă premium</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Certificări recunoscute internațional</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Învățare în ritmul tău, 24/7</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Suport de la instructori experți</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Comunitate activă de cursanți</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Monitorizare progres în timp real</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Garanție de returnare 30 de zile</li>
+                <li><i class="fas fa-check" style="color:#22c55e;"></i> Reducere studențească 20%</li>
+            </ul>
+
+            <div class="alert alert-success" style="margin-top:1rem;">
+                <i class="fas fa-users"></i>
+                <div><strong>1,247 studenți</strong> s-au înregistrat luna aceasta!</div>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p><a href="../index.html">← Înapoi la pagina principală</a></p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>

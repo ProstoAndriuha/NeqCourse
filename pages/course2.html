@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science și Machine Learning - NeqCourse</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="../index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Dialog Preview -->
+        <dialog id="previewDialog">
+            <div class="dialog-header">
+                <span><i class="fas fa-play-circle"></i> Preview: Data Science &amp; ML</span>
+                <button class="dialog-close" onclick="document.getElementById('previewDialog').close()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="dialog-body">
+                <video class="video-preview" controls>
+                    <source src="#" type="video/mp4">
+                    <p>Browserul tău nu suportă video HTML5.</p>
+                </video>
+                <p style="margin-top:1rem; color:var(--text-muted);">Lecție gratuită: <strong>Introducere în Python pentru Data Science</strong> &middot; 28 min</p>
+            </div>
+            <div class="dialog-footer">
+                <a href="register.html" class="btn btn-danger btn-sm"><i class="fas fa-user-plus"></i> Înscrie-te</a>
+                <button class="btn btn-outline btn-sm" onclick="document.getElementById('previewDialog').close()">Închide</button>
+            </div>
+        </dialog>
+
+        <article>
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li>Data Science și Machine Learning</li>
+            </ol>
+
+            <!-- Course Header -->
+            <div class="course-header">
+                <h2><i class="fas fa-chart-bar"></i> Data Science și Machine Learning</h2>
+                <div class="course-meta" style="color:#ccd6f6; margin-top:0.75rem;">
+                    <span><i class="fas fa-user-tie"></i> Dr. Maria Ionescu</span>
+                    <span><i class="fas fa-clock"></i> 16 săptămâni</span>
+                    <span><span class="badge badge-advanced">Avansat</span></span>
+                    <span><i class="fas fa-language"></i> Română &amp; Engleză</span>
+                </div>
+                <div class="price-block">
+                    1,499 MDL <del>2,299 MDL</del>
+                    <span class="badge-discount">-35%</span>
+                </div>
+                <div style="margin:0.5rem 0 0.25rem; color:#fbbf24;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <span style="color:#ccd6f6; font-size:0.9rem;"> 4.9/5 &bull; 0 recenzii &bull; 0 cursanți</span>
+                </div>
+                <!-- Video Thumb -->
+                <div class="video-thumb" onclick="document.getElementById('previewDialog').showModal()" style="margin:1.25rem 0;">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Preview curs Data Science" loading="lazy">
+                    <div class="video-play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <!-- Countdown -->
+                <p style="color:#fbbf24; font-size:0.85rem; margin-bottom:0.5rem;"><i class="fas fa-fire"></i> Ofertă specială expiră în:</p>
+                <div class="countdown">
+                    <div class="countdown-box"><span class="countdown-num" id="cd2-h">23</span><small>Ore</small></div>
+                    <div class="countdown-box"><span class="countdown-num" id="cd2-m">59</span><small>Min</small></div>
+                    <div class="countdown-box"><span class="countdown-num" id="cd2-s">59</span><small>Sec</small></div>
+                </div>
+                <div class="btn-group" style="margin-top:1.25rem;">
+                    <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
+                    <button class="btn btn-ghost" onclick="document.getElementById('previewDialog').showModal()"><i class="fas fa-play-circle"></i> Lecții Demo</button>
+                    <a href="#" class="btn btn-ghost"><i class="fas fa-heart"></i> Salvează</a>
+                </div>
+            </div>
+
+            <!-- About -->
+            <section>
+                <h3><i class="fas fa-book"></i> Despre Curs</h3>
+                <p>Devino expert în Data Science și Machine Learning! Acest curs avansat te va învăța să lucrezi cu date complexe, să construiești modele predictive și să implementezi algoritmi de machine learning în proiecte reale.</p>
+                <p>Vei învăța Python pentru data science, biblioteci esențiale (pandas, NumPy, scikit-learn, TensorFlow), statistică aplicată, vizualizarea datelor și multe altele. Cursul include 20+ proiecte practice cu date reale din industrie.</p>
+            </section>
+
+            <!-- What you'll learn -->
+            <section>
+                <h3><i class="fas fa-bullseye"></i> Ce vei învăța</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Python pentru Data Science: NumPy, pandas, Matplotlib</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Analiza exploratorie a datelor (EDA)</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Curățarea și preprocesarea datelor</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Statistică și probabilități pentru Data Science</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Machine Learning: Supervised și Unsupervised Learning</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Algoritmi: Regression, Classification, Clustering</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Deep Learning cu TensorFlow și Keras</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Neural Networks și CNN</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Natural Language Processing (NLP)</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Model evaluation, tuning și deployment</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Big Data cu Spark</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Cloud ML: AWS SageMaker, Google Cloud AI</li>
+                </ul>
+            </section>
+
+            <!-- Progres Curriculum -->
+            <section>
+                <h3><i class="fas fa-tasks"></i> Distribuția Orelor pe Module</h3>
+                <div class="progress-wrap">
+                    <span>Python &amp; Data Processing</span>
+                    <progress value="25" max="100"></progress>
+                    <span>25%</span>
+                </div>
+                <div class="progress-wrap">
+                    <span>Machine Learning</span>
+                    <progress value="35" max="100"></progress>
+                    <span>35%</span>
+                </div>
+                <div class="progress-wrap">
+                    <span>Deep Learning &amp; NLP</span>
+                    <progress value="25" max="100"></progress>
+                    <span>25%</span>
+                </div>
+                <div class="progress-wrap">
+                    <span>Deployment &amp; Cloud</span>
+                    <progress value="15" max="100"></progress>
+                    <span>15%</span>
+                </div>
+            </section>
+
+            <!-- Curriculum -->
+            <section>
+                <h3><i class="fas fa-list-ol"></i> Curriculum</h3>
+
+                <details open>
+                    <summary>Modul 1: Fundamentele Python pentru Data Science (3 săptămâni)</summary>
+                    <ol>
+                        <li>Python Programming Review (30 min)</li>
+                        <li>NumPy pentru Computații Numerice (45 min)</li>
+                        <li>Pandas pentru Manipularea Datelor (60 min)</li>
+                        <li>Vizualizare cu Matplotlib și Seaborn (50 min)</li>
+                        <li>Jupyter Notebooks Best Practices (25 min)</li>
+                        <li>Proiect: Analiza Dataset Olympic Games (90 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Modul 2: Statistică și Probabilități (2 săptămâni)</summary>
+                    <ol>
+                        <li>Statistică Descriptivă (40 min)</li>
+                        <li>Distribuții de Probabilitate (45 min)</li>
+                        <li>Hypothesis Testing (50 min)</li>
+                        <li>Correlation și Causation (35 min)</li>
+                        <li>Proiect: Analiza Statistică A/B Testing (70 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Modul 3: Machine Learning Fundamentals (4 săptămâni)</summary>
+                    <ol>
+                        <li>Introducere în Machine Learning (35 min)</li>
+                        <li>Supervised vs Unsupervised Learning (30 min)</li>
+                        <li>Linear Regression (55 min)</li>
+                        <li>Logistic Regression (50 min)</li>
+                        <li>Decision Trees și Random Forests (60 min)</li>
+                        <li>Support Vector Machines (45 min)</li>
+                        <li>K-Means Clustering (40 min)</li>
+                        <li>Feature Engineering (55 min)</li>
+                        <li>Model Evaluation Metrics (50 min)</li>
+                        <li>Proiect: House Price Prediction (120 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Modul 4: Deep Learning (4 săptămâni)</summary>
+                    <ol>
+                        <li>Neural Networks Basics (50 min)</li>
+                        <li>TensorFlow și Keras (45 min)</li>
+                        <li>Building Your First Neural Network (60 min)</li>
+                        <li>Convolutional Neural Networks (CNN) (70 min)</li>
+                        <li>Recurrent Neural Networks (RNN) (65 min)</li>
+                        <li>Transfer Learning (50 min)</li>
+                        <li>Proiect: Image Classification cu CNN (150 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Modul 5: Natural Language Processing (2 săptămâni)</summary>
+                    <ol>
+                        <li>Text Processing Fundamentals (40 min)</li>
+                        <li>Tokenization și Lemmatization (35 min)</li>
+                        <li>Bag of Words și TF-IDF (45 min)</li>
+                        <li>Word Embeddings (Word2Vec, GloVe) (50 min)</li>
+                        <li>Sentiment Analysis (55 min)</li>
+                        <li>Proiect: Twitter Sentiment Analysis (100 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Modul 6: Deployment și Production (1 săptămână)</summary>
+                    <ol>
+                        <li>Model Deployment cu Flask (45 min)</li>
+                        <li>Docker pentru ML (40 min)</li>
+                        <li>Cloud Deployment: AWS și GCP (60 min)</li>
+                        <li>ML Pipelines (50 min)</li>
+                        <li>Proiect Final: End-to-End ML Project (180 min)</li>
+                    </ol>
+                </details>
+            </section>
+
+            <!-- Technologies -->
+            <section>
+                <h3><i class="fas fa-tools"></i> Tehnologii și Tools</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categorie</th>
+                            <th>Tehnologii</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Limbaj</strong></td><td>Python 3.10+</td></tr>
+                        <tr><td><strong>Data Processing</strong></td><td>NumPy, pandas, SciPy</td></tr>
+                        <tr><td><strong>Vizualizare</strong></td><td>Matplotlib, Seaborn, Plotly</td></tr>
+                        <tr><td><strong>Machine Learning</strong></td><td>scikit-learn, XGBoost, LightGBM</td></tr>
+                        <tr><td><strong>Deep Learning</strong></td><td>TensorFlow, Keras, PyTorch</td></tr>
+                        <tr><td><strong>NLP</strong></td><td>NLTK, spaCy, Transformers</td></tr>
+                        <tr><td><strong>Big Data</strong></td><td>Apache Spark, Dask</td></tr>
+                        <tr><td><strong>Cloud &amp; Deployment</strong></td><td>AWS, GCP, Docker, Flask</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Requirements -->
+            <section>
+                <h3><i class="fas fa-clipboard-check"></i> Cerințe</h3>
+                <ul>
+                    <li>Cunoștințe solide de Python (funcții, clase, OOP)</li>
+                    <li>Matematică de nivel liceal (algebră, trigonometrie)</li>
+                    <li>Cunoștințe de bază în statistică (opțional dar recomandat)</li>
+                    <li>Computer cu minimum 8GB RAM (16GB recomandat)</li>
+                    <li>Dorință de a lucra cu date și de a rezolva probleme complexe</li>
+                </ul>
+            </section>
+
+            <!-- Evaluări Detaliate -->
+            <section>
+                <h3><i class="fas fa-chart-pie"></i> Evaluări Detaliate</h3>
+                <div class="meter-wrap"><span>Calitate conținut</span><meter value="4.9" min="0" max="5" optimum="5"></meter><span>4.9/5</span></div>
+                <div class="meter-wrap"><span>Claritate instructor</span><meter value="4.9" min="0" max="5" optimum="5"></meter><span>4.9/5</span></div>
+                <div class="meter-wrap"><span>Proiecte practice</span><meter value="4.8" min="0" max="5" optimum="5"></meter><span>4.8/5</span></div>
+                <div class="meter-wrap"><span>Raport calitate-preț</span><meter value="4.7" min="0" max="5" optimum="5"></meter><span>4.7/5</span></div>
+            </section>
+
+            <!-- Instructor -->
+            <section>
+                <h3><i class="fas fa-user-tie"></i> Despre Instructor</h3>
+                <blockquote>
+                    <p><strong>Dr. Maria Ionescu</strong> — PhD în Machine Learning, Universitatea București</p>
+                    <ul>
+                        <li>12+ ani experiență în Data Science și AI</li>
+                        <li>Senior Data Scientist la companii Fortune 500</li>
+                        <li>Publicații în jurnale științifice de top</li>
+                        <li>20+ cursuri cu peste 80,000 de cursanți</li>
+                        <li>Rating mediu instructor: 4.9/5</li>
+                    </ul>
+                </blockquote>
+                <ul>
+                    <li>PhD în Machine Learning, Universitatea București</li>
+                    <li>12+ ani experiență în Data Science și AI</li>
+                    <li>Senior Data Scientist la companii Fortune 500</li>
+                    <li>Publicații în jurnale științifice prestigioase</li>
+                    <li>20+ cursuri cu peste 80,000 de cursanți</li>
+                    <li>Rating mediu instructor: 4.9/5</li>
+                </ul>
+            </section>
+
+            <!-- Reviews -->
+            <section>
+                <h3><i class="fas fa-comments"></i> Recenzii</h3>
+                <div class="course-card">
+                    <p><strong><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span> 5/5</strong> — Bogdan T.</p>
+                    <p>"Cel mai complet curs de Data Science din România! Dr. Ionescu explică concepte complexe într-un mod foarte accesibil. După acest curs am obținut un job la Google ca ML Engineer!"</p>
+                </div>
+                <div class="course-card">
+                    <p><strong><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span> 5/5</strong> — Diana S.</p>
+                    <p>"Cursul este extraordinar de bine structurat. Proiectele practice sunt direct aplicabile în industrie. Recomand cu încredere!"</p>
+                </div>
+                <a href="#all-reviews" class="btn btn-outline mt-2"><i class="fas fa-list"></i> Vezi toate recenziile</a>
+            </section>
+
+            <!-- Bonuses -->
+            <section>
+                <h3><i class="fas fa-gift"></i> Bonusuri Incluse</h3>
+                <ul>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 65+ ore de video 4K</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 20+ proiecte hands-on cu date reale</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 50+ Jupyter Notebooks</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Datasets premium (10GB+)</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Cheat sheets și resurse descărcabile</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces la GPU cloud pentru training</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Sesiuni Q&A live cu instructorul (2x/lună)</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Certificat profesional</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Career guidance și ajutor pentru interviuri</li>
+                </ul>
+            </section>
+
+            <!-- FAQ -->
+            <section>
+                <h3><i class="fas fa-question-circle"></i> Întrebări Frecvente</h3>
+                <details><summary>Am nevoie de experiență anterioară în ML?</summary><p>Ai nevoie de cunoștințe Python intermediare. Experiența în ML nu este necesară — cursul pornește de la fundamente.</p></details>
+                <details><summary>Cât durează accesul la curs?</summary><p>Acces pe viață. Vei primi și toate update-urile viitoare gratuit.</p></details>
+                <details><summary>Există certificat?</summary><p>Da, certificat digital după finalizarea tuturor modulelor și proiectului final.</p></details>
+                <details><summary>Pot accesa cursul de pe telefon?</summary><p>Da, platforma este responsive și funcționează pe orice dispozitiv.</p></details>
+            </section>
+
+            <!-- CTA -->
+            <section class="hero" style="padding:2rem;">
+                <h2 style="font-size:1.4rem;"><i class="fas fa-rocket"></i> Înscrie-te și Devino Data Scientist!</h2>
+                <div class="btn-group" style="justify-content:center; margin-top:1rem;">
+                    <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
+                    <button class="btn btn-outline" onclick="document.getElementById('previewDialog').showModal()"><i class="fas fa-play-circle"></i> Demo Gratuit</button>
+                </div>
+            </section>
+        </article>
+
+        <aside>
+            <h3><i class="fas fa-info-circle"></i> Informații Rapide</h3>
+            <ul class="aside-list">
+                <li><i class="fas fa-clock"></i> <strong>Durată:</strong> 16 săptămâni</li>
+                <li><i class="fas fa-video"></i> <strong>Video:</strong> 65+ ore HD</li>
+                <li><i class="fas fa-laptop-code"></i> <strong>Proiecte:</strong> 20+</li>
+                <li><i class="fas fa-certificate"></i> <strong>Certificat:</strong> Inclus</li>
+                <li><i class="fas fa-infinity"></i> <strong>Acces:</strong> Pe viață</li>
+                <li><i class="fas fa-download"></i> <strong>Resurse:</strong> 50+ Notebooks, 10GB+ date</li>
+                <li><i class="fas fa-users"></i> <strong>Cursanți:</strong> 12,847</li>
+            </ul>
+            <a href="register.html" class="btn btn-danger" style="width:100%; margin-top:1rem; text-align:center;"><i class="fas fa-bolt"></i> Înscrie-te — 1,299 MDL</a>
+            <h3 style="margin-top:2rem;"><i class="fas fa-layer-group"></i> Cursuri Similare</h3>
+            <div class="course-card">
+                <p><strong><a href="course1.html">Dezvoltare Web Full-Stack</a></strong></p>
+                <p><span class="badge badge-advanced">Avansat</span> &middot; 1,199 MDL</p>
+            </div>
+            <div class="course-card">
+                <p><strong><a href="course4.html">Marketing Digital</a></strong></p>
+                <p><span class="badge badge-intermediate">Intermediar</span> &middot; 899 MDL</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p><a href="courses.html">← Înapoi la cursuri</a></p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var end = new Date();
+            end.setHours(end.getHours() + 23, end.getMinutes() + 59, end.getSeconds() + 59, 0);
+            function tick() {
+                var diff = Math.max(0, Math.floor((end - new Date()) / 1000));
+                var h = Math.floor(diff / 3600);
+                var m = Math.floor((diff % 3600) / 60);
+                var s = diff % 60;
+                var eh = document.getElementById('cd2-h');
+                var em = document.getElementById('cd2-m');
+                var es = document.getElementById('cd2-s');
+                if (eh) eh.textContent = String(h).padStart(2, '0');
+                if (em) em.textContent = String(m).padStart(2, '0');
+                if (es) es.textContent = String(s).padStart(2, '0');
+                if (diff > 0) setTimeout(tick, 1000);
+            }
+            tick();
+        })();
+    </script>
+</body>
+</html>

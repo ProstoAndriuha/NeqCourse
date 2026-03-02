@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dezvoltare Web Full-Stack - NeqCourse</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="../index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Dialog Preview -->
+        <dialog id="previewDialog1">
+            <div class="dialog-header">
+                <span><i class="fas fa-play-circle"></i> Preview: Dezvoltare Web Full-Stack</span>
+                <button class="dialog-close" onclick="document.getElementById('previewDialog1').close()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="dialog-body">
+                <video class="video-preview" controls>
+                    <source src="#" type="video/mp4">
+                    <p>Browserul tău nu suportă video HTML5.</p>
+                </video>
+                <p style="margin-top:1rem; color:var(--text-muted);">Lecție gratuită: <strong>Introducere în Dezvoltarea Web Modernă</strong> &middot; 15 min</p>
+            </div>
+            <div class="dialog-footer">
+                <a href="register.html" class="btn btn-danger btn-sm"><i class="fas fa-user-plus"></i> Înscrie-te</a>
+                <button class="btn btn-outline btn-sm" onclick="document.getElementById('previewDialog1').close()">Închide</button>
+            </div>
+        </dialog>
+
+        <article>
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li>Dezvoltare Web Full-Stack</li>
+            </ol>
+
+            <!-- Course Header -->
+            <div class="course-header">
+                <h2><i class="fas fa-laptop-code"></i> Dezvoltare Web Full-Stack</h2>
+                <div class="course-meta" style="color:#ccd6f6; margin-top:0.75rem;">
+                    <span><i class="fas fa-user-tie"></i> Prof. Alexandru Popescu</span>
+                    <span><i class="fas fa-clock"></i> 12 săptămâni</span>
+                    <span><span class="badge badge-intermediate">Intermediar</span></span>
+                    <span><i class="fas fa-language"></i> Română / Engleză</span>
+                </div>
+                <div class="price-block">
+                    999 MDL <del>1,499 MDL</del>
+                    <span class="badge-discount">-33%</span>
+                </div>
+                <div style="margin:0.5rem 0 0.25rem; color:#fbbf24;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <span style="color:#ccd6f6; font-size:0.9rem;"> 4.8/5 &bull; 0 recenzii &bull; 0 cursanți</span>
+                </div>
+                <!-- Video Thumb -->
+                <div class="video-thumb" onclick="document.getElementById('previewDialog1').showModal()" style="margin:1.25rem 0;">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80" alt="Preview curs Web Development" loading="lazy">
+                    <div class="video-play-btn"><i class="fas fa-play"></i></div>
+                </div>
+                <!-- Countdown -->
+                <p style="color:#fbbf24; font-size:0.85rem; margin-bottom:0.5rem;"><i class="fas fa-fire"></i> Ofertă specială expiră în:</p>
+                <div class="countdown">
+                    <div class="countdown-box"><span class="countdown-num" id="cd1-h">23</span><small>Ore</small></div>
+                    <div class="countdown-box"><span class="countdown-num" id="cd1-m">59</span><small>Min</small></div>
+                    <div class="countdown-box"><span class="countdown-num" id="cd1-s">59</span><small>Sec</small></div>
+                </div>
+                <div class="btn-group" style="margin-top:1.25rem;">
+                    <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
+                    <button class="btn btn-ghost" onclick="document.getElementById('previewDialog1').showModal()"><i class="fas fa-play-circle"></i> Preview Gratuit</button>
+                    <a href="#" class="btn btn-ghost"><i class="fas fa-heart"></i> Salvează</a>
+                </div>
+            </div>
+
+            <!-- About -->
+            <section>
+                <h3><i class="fas fa-book"></i> Despre Curs</h3>
+                <p>Devino un dezvoltator web full-stack profesionist! Acest curs comprehensiv te va învăța tot ce ai nevoie pentru a construi aplicații web moderne și scalabile, de la frontend până la backend.</p>
+                <p>Vei învăța HTML5, CSS3, JavaScript ES6+, React, Node.js, Express, MongoDB și multe altele. La finalul cursului vei avea un portofoliu solid de proiecte reale.</p>
+            </section>
+
+            <!-- What you'll learn -->
+            <section>
+                <h3><i class="fas fa-bullseye"></i> Ce vei învăța</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Fundamentele web: HTML5, CSS3, JavaScript ES6+</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Framework-uri moderne: React, Redux, React Router</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Dezvoltare backend cu Node.js și Express</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Baze de date: MongoDB, MySQL, PostgreSQL</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Autentificare și securitate: JWT, OAuth, bcrypt</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> API-uri RESTful și GraphQL</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Deployment: Heroku, AWS, Docker</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Control versiuni cu Git și GitHub</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Testing: Jest, Mocha, Chai</li>
+                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Best practices și design patterns</li>
+                </ul>
+            </section>
+
+            <!-- Progres Curriculum -->
+            <section>
+                <h3><i class="fas fa-tasks"></i> Distribuția Orelor pe Module</h3>
+                <div class="progress-wrap">
+                    <span>HTML, CSS &amp; JavaScript</span>
+                    <progress value="28" max="100"></progress>
+                    <span>28%</span>
+                </div>
+                <div class="progress-wrap">
+                    <span>React &amp; Frontend Modern</span>
+                    <progress value="27" max="100"></progress>
+                    <span>27%</span>
+                </div>
+                <div class="progress-wrap">
+                    <span>Node.js &amp; Backend</span>
+                    <progress value="28" max="100"></progress>
+                    <span>28%</span>
+                </div>
+                <div class="progress-wrap">
+                    <span>Full-Stack &amp; Deployment</span>
+                    <progress value="17" max="100"></progress>
+                    <span>17%</span>
+                </div>
+            </section>
+
+            <!-- Curriculum -->
+            <section>
+                <h3><i class="fas fa-list-ol"></i> Curriculum Detaliat</h3>
+
+                <details>
+                    <summary>Săptămâna 1-2: Fundamentele Web Development (12 lecții, 3 ore)</summary>
+                    <ol>
+                        <li>Introducere în Dezvoltarea Web (15 min)</li>
+                        <li>HTML5 Fundamentals (30 min)</li>
+                        <li>CSS3 și Flexbox (45 min)</li>
+                        <li>CSS Grid Layout (30 min)</li>
+                        <li>Responsive Design (25 min)</li>
+                        <li>JavaScript Basics (40 min)</li>
+                        <li>DOM Manipulation (35 min)</li>
+                        <li>Events și Event Listeners (25 min)</li>
+                        <li>Proiect: Landing Page Responsive (45 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Săptămâna 3-4: JavaScript Modern (15 lecții, 4 ore)</summary>
+                    <ol>
+                        <li>ES6+ Features (40 min)</li>
+                        <li>Arrow Functions și Template Literals (20 min)</li>
+                        <li>Destructuring și Spread Operator (25 min)</li>
+                        <li>Promises și Async/Await (45 min)</li>
+                        <li>Fetch API și AJAX (30 min)</li>
+                        <li>Array Methods (map, filter, reduce) (35 min)</li>
+                        <li>OOP în JavaScript (40 min)</li>
+                        <li>Modules și Import/Export (20 min)</li>
+                        <li>Proiect: Weather App cu API (60 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Săptămâna 5-7: React și Frontend Modern (20 lecții, 6 ore)</summary>
+                    <ol>
+                        <li>Introducere în React (30 min)</li>
+                        <li>Components și Props (40 min)</li>
+                        <li>State și Lifecycle (45 min)</li>
+                        <li>React Hooks (useState, useEffect) (50 min)</li>
+                        <li>Context API (35 min)</li>
+                        <li>React Router (40 min)</li>
+                        <li>Redux Fundamentals (45 min)</li>
+                        <li>Redux Toolkit (35 min)</li>
+                        <li>Proiect: E-commerce Frontend (90 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Săptămâna 8-10: Backend Development cu Node.js (18 lecții, 5 ore)</summary>
+                    <ol>
+                        <li>Introducere în Node.js (25 min)</li>
+                        <li>Express.js Basics (40 min)</li>
+                        <li>Routing și Middleware (35 min)</li>
+                        <li>RESTful API Design (45 min)</li>
+                        <li>MongoDB și Mongoose (50 min)</li>
+                        <li>CRUD Operations (40 min)</li>
+                        <li>Autentificare cu JWT (55 min)</li>
+                        <li>File Upload (30 min)</li>
+                        <li>Error Handling (25 min)</li>
+                        <li>Proiect: Blog API Complete (80 min)</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Săptămâna 11-12: Full-Stack Integration și Deployment (16 lecții, 4 ore)</summary>
+                    <ol>
+                        <li>Conectarea Frontend cu Backend (40 min)</li>
+                        <li>Git și GitHub Workflow (30 min)</li>
+                        <li>Testing cu Jest (40 min)</li>
+                        <li>Docker Basics (35 min)</li>
+                        <li>Deployment pe Heroku (30 min)</li>
+                        <li>AWS și Cloud Services (40 min)</li>
+                        <li>Security Best Practices (35 min)</li>
+                        <li>Proiect Final: Full-Stack Social Media App (120 min)</li>
+                    </ol>
+                </details>
+            </section>
+
+            <!-- Evaluări Detaliate -->
+            <section>
+                <h3><i class="fas fa-chart-pie"></i> Evaluări Detaliate</h3>
+                <div class="meter-wrap"><span>Calitate conținut</span><meter value="4.8" min="0" max="5" optimum="5"></meter><span>4.8/5</span></div>
+                <div class="meter-wrap"><span>Claritate instructor</span><meter value="4.9" min="0" max="5" optimum="5"></meter><span>4.9/5</span></div>
+                <div class="meter-wrap"><span>Proiecte practice</span><meter value="4.8" min="0" max="5" optimum="5"></meter><span>4.8/5</span></div>
+                <div class="meter-wrap"><span>Raport calitate-preț</span><meter value="4.7" min="0" max="5" optimum="5"></meter><span>4.7/5</span></div>
+            </section>
+
+            <!-- Requirements -->
+            <section>
+                <h3><i class="fas fa-clipboard-check"></i> Cerințe</h3>
+                <ul>
+                    <li>Cunoștințe de bază în programare (orice limbaj)</li>
+                    <li>Computer cu Windows, Mac sau Linux</li>
+                    <li>Editor de cod (VS Code recomandat - gratuit)</li>
+                    <li>Conexiune la internet</li>
+                    <li>Dorință de a învăța și practică constantă!</li>
+                </ul>
+            </section>
+
+            <!-- Instructor -->
+            <section>
+                <h3><i class="fas fa-user-tie"></i> Despre Instructor</h3>
+                <p><strong>Prof. Alexandru Popescu</strong></p>
+                <ul>
+                    <li>15+ ani experiență în dezvoltare web</li>
+                    <li>Senior Full-Stack Developer la companii internaționale</li>
+                    <li>Speaker la conferințe tech</li>
+                    <li>Autor a 8 cursuri cu peste 50,000 de cursanți</li>
+                    <li>Rating mediu instructor: 4.9/5</li>
+                </ul>
+                <blockquote style="border-left:4px solid #4361ee; padding-left:1rem; color:#4a5568; margin-top:1rem; font-style:italic;">
+                    "Pasiunea mea este să transform începătorii în dezvoltatori profesioniști. Cursurile mele sunt bazate pe experiența practică din industrie și sunt actualizate constant cu cele mai noi tehnologii."
+                </blockquote>
+            </section>
+
+            <!-- Reviews -->
+            <section>
+                <h3><i class="fas fa-comments"></i> Recenzii Cursanți</h3>
+
+                <div class="course-card">
+                    <p><strong><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span> 5/5</strong> — Mihai R.</p>
+                    <p>"Cel mai bun curs de dezvoltare web pe care l-am făcut vreodată! Alexandru explică totul foarte clar și proiectele practice sunt extraordinare. După 3 luni am obținut primul meu job ca Junior Developer!"</p>
+                    <small class="text-muted">Acum 2 săptămâni</small>
+                </div>
+
+                <div class="course-card">
+                    <p><strong><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span> 5/5</strong> — Elena P.</p>
+                    <p>"Curs excelent pentru cei care vor să devină full-stack developers. Conținutul este foarte bine structurat și la zi cu tehnologiile moderne. Recomand cu încredere!"</p>
+                    <small class="text-muted">Acum 1 lună</small>
+                </div>
+
+                <div class="course-card">
+                    <p><strong><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span> 4/5</strong> — Andrei M.</p>
+                    <p>"Foarte bun curs, dar destul de intens. Trebuie să aloci timp pentru practică. Proiectul final este provocator dar foarte rewarding!"</p>
+                    <small class="text-muted">Acum 3 săptămâni</small>
+                </div>
+
+                <a href="#all-reviews" class="btn btn-outline mt-2"><i class="fas fa-list"></i> Vezi toate recenziile</a>
+            </section>
+
+            <!-- What you get -->
+            <section>
+                <h3><i class="fas fa-gift"></i> Ce primești cu cursul</h3>
+                <ul>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 48 ore de video HD</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 15 proiecte practice</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Cod sursă pentru toate proiectele</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Resurse descărcabile și cheat sheets</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces pe viață la conținut</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Update-uri gratuite</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Certificat de finalizare</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Suport Q&A de la instructor</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces la comunitatea privată Discord</li>
+                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 30 zile garanție de returnare</li>
+                </ul>
+            </section>
+
+            <!-- Payment options -->
+            <section>
+                <h3><i class="fas fa-credit-card"></i> Opțiuni de Plată</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Preț</th>
+                            <th>Beneficii</th>
+                            <th>Acțiune</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Acces Complet</strong></td>
+                            <td><strong>999 MDL</strong> <del>1,499 MDL</del></td>
+                            <td>Toate lecțiile + Certificat + Suport</td>
+                            <td><a href="register.html" class="btn btn-primary" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Înscrie-te</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bundle 3 Cursuri</strong></td>
+                            <td><strong>2,499 MDL</strong> <del>4,499 MDL</del></td>
+                            <td>Acest curs + 2 la alegere + Extra bonusuri</td>
+                            <td><a href="register.html" class="btn btn-primary" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Înscrie-te</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acces Premium Anual</strong></td>
+                            <td><strong>4,999 MDL</strong> <del>9,999 MDL</del></td>
+                            <td>TOATE cursurile pentru 1 an</td>
+                            <td><a href="register.html" class="btn btn-primary" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Înscrie-te</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- FAQ -->
+            <section>
+                <h3><i class="fas fa-question-circle"></i> Întrebări Frecvente</h3>
+
+                <details>
+                    <summary>Cât timp am acces la curs?</summary>
+                    <p>Ai acces pe viață! Odată înscris, poți accesa cursul oricând dorești, de pe orice dispozitiv.</p>
+                </details>
+                <details>
+                    <summary>Pot returna cursul dacă nu sunt mulțumit?</summary>
+                    <p>Da! Oferim garanție de returnare a banilor 30 de zile, fără întrebări.</p>
+                </details>
+                <details>
+                    <summary>Primesc certificat la final?</summary>
+                    <p>Da! La finalizarea cursului primești un certificat digital recunoscut, pe care îl poți adăuga pe LinkedIn sau CV.</p>
+                </details>
+                <details>
+                    <summary>Are cursul subtitrări?</summary>
+                    <p>Da! Toate lecțiile au subtitrări în română și engleză.</p>
+                </details>
+                <details>
+                    <summary>Pot pune întrebări instructorului?</summary>
+                    <p>Absolut! Ai acces la secțiunea Q&A unde instructorul răspunde la întrebări în maxim 48 ore.</p>
+                </details>
+            </section>
+
+            <!-- CTA -->
+            <section class="hero" style="padding:2rem;">
+                <h2 style="font-size:1.4rem;"><i class="fas fa-rocket"></i> Gata să devii Full-Stack Developer?</h2>
+                <p>Oferta limitată - Reducere 33% valabilă doar astăzi!</p>
+                <div class="btn-group" style="justify-content:center;">
+                    <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
+                </div>
+            </section>
+        </article>
+
+        <aside>
+            <h3><i class="fas fa-info-circle"></i> Informații Rapide</h3>
+            <ul class="aside-list">
+                <li><i class="fas fa-clock"></i> <strong>Durată:</strong> 12 săptămâni</li>
+                <li><i class="fas fa-video"></i> <strong>Video:</strong> 48 ore HD</li>
+                <li><i class="fas fa-laptop-code"></i> <strong>Proiecte:</strong> 15</li>
+                <li><i class="fas fa-certificate"></i> <strong>Certificat:</strong> Inclus</li>
+                <li><i class="fas fa-infinity"></i> <strong>Acces:</strong> Pe viață</li>
+                <li><i class="fas fa-shield-alt"></i> <strong>Garanție:</strong> 30 zile</li>
+                <li><i class="fas fa-users"></i> <strong>Cursanți:</strong> 9,234</li>
+            </ul>
+            <a href="register.html" class="btn btn-danger" style="width:100%; margin-top:1rem; text-align:center;"><i class="fas fa-bolt"></i> Înscrie-te — 999 MDL</a>
+            <h3 style="margin-top:2rem;"><i class="fas fa-layer-group"></i> Cursuri Similare</h3>
+            <div class="course-card">
+                <p><strong><a href="course2.html">Data Science &amp; ML</a></strong></p>
+                <p><span class="badge badge-advanced">Avansat</span> &middot; 1,299 MDL</p>
+            </div>
+            <div class="course-card">
+                <p><strong><a href="course3.html">Design UI/UX</a></strong></p>
+                <p><span class="badge badge-beginner">Începător</span> &middot; 699 MDL</p>
+            </div>
+            <div class="course-card">
+                <p><strong><a href="course4.html">Marketing Digital</a></strong></p>
+                <p><span class="badge badge-intermediate">Intermediar</span> &middot; 899 MDL</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p><a href="courses.html">← Înapoi la cursuri</a> | <a href="../index.html">Acasă</a></p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var end = new Date();
+            end.setHours(end.getHours() + 23, end.getMinutes() + 59, end.getSeconds() + 59, 0);
+            function tick() {
+                var diff = Math.max(0, Math.floor((end - new Date()) / 1000));
+                var h = Math.floor(diff / 3600);
+                var m = Math.floor((diff % 3600) / 60);
+                var s = diff % 60;
+                var eh = document.getElementById('cd1-h');
+                var em = document.getElementById('cd1-m');
+                var es = document.getElementById('cd1-s');
+                if (eh) eh.textContent = String(h).padStart(2, '0');
+                if (em) em.textContent = String(m).padStart(2, '0');
+                if (es) es.textContent = String(s).padStart(2, '0');
+                if (diff > 0) setTimeout(tick, 1000);
+            }
+            tick();
+        })();
+    </script>
+</body>
+</html>

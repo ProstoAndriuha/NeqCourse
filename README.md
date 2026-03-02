@@ -1,13 +1,25 @@
-# TWEB - Primea versiune HTML
+# TWEB - NeqCourse
 
-Acest repo conține prima versiune a paginilor HTML pentru proiectul TWEB.
+Platformă de învățare online construită cu HTML, CSS și Font Awesome.
 
 ## Conținut
-- Pagini de curs: course1.html, course2.html, course3.html, course4.html
-- Listă cursuri: courses.html
-- Pagină principală: index.html
-- Autentificare: login.html
-- Înregistrare: register.html
+
+- `index.html` — Pagina principală (hero, cursuri populare, statistici)
+- `pages/courses.html` — Lista tuturor cursurilor
+- `pages/course1–4.html` — Pagini individuale de curs
+- `pages/login.html` — Autentificare
+- `pages/register.html` — Înregistrare
+- `css/main.css` — Stilizare completă (temă modernă, responsive)
+
+## Tehnologii
+
+- HTML5
+- CSS3 (variabile, flexbox, grid, animații)
+- Font Awesome 6.5
+- Google Fonts (Inter, JetBrains Mono)
 
 ## Stadiu
-Versiunea inițială: structură HTML de bază pentru toate paginile.
+
+- [x] Structură HTML pentru toate paginile
+- [x] Stilizare CSS completă — temă modernă „NeqCourse Student Theme"
+- [ ] JavaScript / interactivitate (în lucru)

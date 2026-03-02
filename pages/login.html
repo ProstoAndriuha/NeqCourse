@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificare - NeqCourse</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="../index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html" class="active">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                    <li>Autentificare</li>
+                </ol>
+            </nav>
+
+            <h2><i class="fas fa-lock"></i> Autentificare</h2>
+            <p>Intră în contul tău pentru a continua învățarea.</p>
+
+            <div class="alert alert-info">
+                <i class="fas fa-shield-alt"></i>
+                <div>Conexiunea ta este <strong>securizată</strong>. Datele sunt criptate cu SSL/TLS.</div>
+            </div>
+
+            <form action="dashboard.html" method="post" novalidate>
+                <fieldset>
+                    <legend><i class="fas fa-user-circle"></i> Date de Autentificare</legend>
+
+                    <label for="email">Email sau Nume Utilizator: <sup>*</sup></label>
+                    <div class="input-icon-wrap">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="email" name="email" required placeholder="email@exemplu.com" autocomplete="username" autofocus>
+                    </div>
+
+                    <label for="password">Parola: <sup>*</sup></label>
+                    <div class="input-icon-wrap">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Parola ta" autocomplete="current-password">
+                    </div>
+
+                    <label for="twofa" style="margin-top:0.85rem;">Cod 2FA (dacă este activat):</label>
+                    <div class="input-icon-wrap">
+                        <i class="fas fa-mobile-alt"></i>
+                        <input type="text" id="twofa" name="twofa" placeholder="6 cifre din aplicația Authenticator" maxlength="6" pattern="[0-9]{6}" autocomplete="one-time-code">
+                    </div>
+                    <span class="form-hint">Lăsați gol dacă nu ați activat autentificarea în doi pași.</span>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:1rem;">
+                        <label class="checkbox-label" style="margin-top:0;">
+                            <input type="checkbox" id="remember" name="remember">
+                            Ține-mă minte pe acest dispozitiv (30 zile)
+                        </label>
+                        <a href="#reset-password" style="font-size:0.85rem;"><i class="fas fa-key"></i> Ai uitat parola?</a>
+                    </div>
+
+                    <label for="device" style="margin-top:0.85rem;">Tipul dispozitivului:</label>
+                    <select id="device" name="device" style="max-width:220px;">
+                        <option value="personal" selected>Dispozitiv personal</option>
+                        <option value="shared">Dispozitiv partajat / public</option>
+                    </select>
+                    <span class="form-hint">Pe dispozitivele partajate, sesiunea expiră automat după 30 minute de inactivitate.</span>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> Autentifică-te
+                        </button>
+                        <button type="reset" class="btn btn-outline">
+                            <i class="fas fa-redo"></i> Resetează
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <p class="mt-2">
+                <a href="#reset-password"><i class="fas fa-key"></i> Ai uitat parola? Resetează-o aici</a>
+            </p>
+            <p>Nu ai cont? <a href="register.html"><strong>Înregistrează-te acum — Este Gratuit!</strong></a></p>
+
+            <h3 style="margin-top:1.5rem;"><i class="fas fa-share-alt"></i> Autentificare rapidă cu:</h3>
+            <div class="social-login">
+                <a href="#google" class="btn-social google"><i class="fab fa-google"></i> Google</a>
+                <a href="#facebook" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#github" class="btn-social github"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#linkedin" class="btn-social linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <aside>
+            <h3><i class="fas fa-info-circle"></i> Sfaturi de Securitate</h3>
+            <ul>
+                <li><i class="fas fa-shield-alt" style="color:var(--primary);"></i> Nu împărți niciodată parola cu altcineva</li>
+                <li><i class="fas fa-key" style="color:var(--primary);"></i> Folosește o parolă unică și puternică</li>
+                <li><i class="fas fa-eye-slash" style="color:var(--primary);"></i> Verifică URL-ul site-ului înainte</li>
+                <li><i class="fas fa-mobile-alt" style="color:var(--primary);"></i> Activează autentificarea în doi pași</li>
+                <li><i class="fas fa-sign-out-alt" style="color:var(--primary);"></i> Deloghează-te pe dispozitivele partajate</li>
+            </ul>
+
+            <div class="alert alert-warning" style="margin-top:1rem; font-size:0.82rem;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>NeqCourse <strong>niciodată</strong> nu va cere parola ta prin email.</div>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p><a href="../index.html">← Înapoi la pagina principală</a></p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>
