@@ -21,7 +21,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="course-page">
 
         <!-- Dialog Preview -->
         <dialog id="previewDialog1">
@@ -34,7 +34,7 @@
                     <source src="#" type="video/mp4">
                     <p>Browserul tău nu suportă video HTML5.</p>
                 </video>
-                <p style="margin-top:1rem; color:var(--text-muted);">Lecție gratuită: <strong>Introducere în Dezvoltarea Web Modernă</strong> &middot; 15 min</p>
+                <p class="dialog-teaser">Lecție gratuită: <strong>Introducere în Dezvoltarea Web Modernă</strong> &middot; 15 min</p>
             </div>
             <div class="dialog-footer">
                 <a href="register.html" class="btn btn-danger btn-sm"><i class="fas fa-user-plus"></i> Înscrie-te</a>
@@ -42,7 +42,7 @@
             </div>
         </dialog>
 
-        <article>
+        <article class="course-article">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
@@ -53,7 +53,7 @@
             <!-- Course Header -->
             <div class="course-header">
                 <h2><i class="fas fa-laptop-code"></i> Dezvoltare Web Full-Stack</h2>
-                <div class="course-meta" style="color:#ccd6f6; margin-top:0.75rem;">
+                <div class="course-meta">
                     <span><i class="fas fa-user-tie"></i> Prof. Alexandru Popescu</span>
                     <span><i class="fas fa-clock"></i> 12 săptămâni</span>
                     <span><span class="badge badge-intermediate">Intermediar</span></span>
@@ -63,23 +63,23 @@
                     999 MDL <del>1,499 MDL</del>
                     <span class="badge-discount">-33%</span>
                 </div>
-                <div style="margin:0.5rem 0 0.25rem; color:#fbbf24;">
+                <div class="course-rating">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span style="color:#ccd6f6; font-size:0.9rem;"> 4.8/5 &bull; 0 recenzii &bull; 0 cursanți</span>
+                    <span class="course-rating-note"> 4.8/5 &bull; 0 recenzii &bull; 0 cursanți</span>
                 </div>
                 <!-- Video Thumb -->
-                <div class="video-thumb" onclick="document.getElementById('previewDialog1').showModal()" style="margin:1.25rem 0;">
+                <div class="video-thumb" onclick="document.getElementById('previewDialog1').showModal()">
                     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80" alt="Preview curs Web Development" loading="lazy">
                     <div class="video-play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <!-- Countdown -->
-                <p style="color:#fbbf24; font-size:0.85rem; margin-bottom:0.5rem;"><i class="fas fa-fire"></i> Ofertă specială expiră în:</p>
+                <p class="course-offer-label"><i class="fas fa-fire"></i> Ofertă specială expiră în:</p>
                 <div class="countdown">
                     <div class="countdown-box"><span class="countdown-num" id="cd1-h">23</span><small>Ore</small></div>
                     <div class="countdown-box"><span class="countdown-num" id="cd1-m">59</span><small>Min</small></div>
                     <div class="countdown-box"><span class="countdown-num" id="cd1-s">59</span><small>Sec</small></div>
                 </div>
-                <div class="btn-group" style="margin-top:1.25rem;">
+                <div class="btn-group course-header-actions">
                     <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
                     <button class="btn btn-ghost" onclick="document.getElementById('previewDialog1').showModal()"><i class="fas fa-play-circle"></i> Preview Gratuit</button>
                     <a href="#" class="btn btn-ghost"><i class="fas fa-heart"></i> Salvează</a>
@@ -97,16 +97,16 @@
             <section>
                 <h3><i class="fas fa-bullseye"></i> Ce vei învăța</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Fundamentele web: HTML5, CSS3, JavaScript ES6+</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Framework-uri moderne: React, Redux, React Router</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Dezvoltare backend cu Node.js și Express</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Baze de date: MongoDB, MySQL, PostgreSQL</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Autentificare și securitate: JWT, OAuth, bcrypt</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> API-uri RESTful și GraphQL</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Deployment: Heroku, AWS, Docker</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Control versiuni cu Git și GitHub</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Testing: Jest, Mocha, Chai</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Best practices și design patterns</li>
+                    <li><i class="fas fa-check-circle"></i> Fundamentele web: HTML5, CSS3, JavaScript ES6+</li>
+                    <li><i class="fas fa-check-circle"></i> Framework-uri moderne: React, Redux, React Router</li>
+                    <li><i class="fas fa-check-circle"></i> Dezvoltare backend cu Node.js și Express</li>
+                    <li><i class="fas fa-check-circle"></i> Baze de date: MongoDB, MySQL, PostgreSQL</li>
+                    <li><i class="fas fa-check-circle"></i> Autentificare și securitate: JWT, OAuth, bcrypt</li>
+                    <li><i class="fas fa-check-circle"></i> API-uri RESTful și GraphQL</li>
+                    <li><i class="fas fa-check-circle"></i> Deployment: Heroku, AWS, Docker</li>
+                    <li><i class="fas fa-check-circle"></i> Control versiuni cu Git și GitHub</li>
+                    <li><i class="fas fa-check-circle"></i> Testing: Jest, Mocha, Chai</li>
+                    <li><i class="fas fa-check-circle"></i> Best practices și design patterns</li>
                 </ul>
             </section>
 
@@ -247,7 +247,7 @@
                     <li>Autor a 8 cursuri cu peste 50,000 de cursanți</li>
                     <li>Rating mediu instructor: 4.9/5</li>
                 </ul>
-                <blockquote style="border-left:4px solid #4361ee; padding-left:1rem; color:#4a5568; margin-top:1rem; font-style:italic;">
+                <blockquote class="course-instructor-quote">
                     "Pasiunea mea este să transform începătorii în dezvoltatori profesioniști. Cursurile mele sunt bazate pe experiența practică din industrie și sunt actualizate constant cu cele mai noi tehnologii."
                 </blockquote>
             </section>
@@ -281,23 +281,23 @@
             <section>
                 <h3><i class="fas fa-gift"></i> Ce primești cu cursul</h3>
                 <ul>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 48 ore de video HD</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 15 proiecte practice</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Cod sursă pentru toate proiectele</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Resurse descărcabile și cheat sheets</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces pe viață la conținut</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Update-uri gratuite</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Certificat de finalizare</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Suport Q&A de la instructor</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces la comunitatea privată Discord</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 30 zile garanție de returnare</li>
+                    <li><i class="fas fa-check"></i> 48 ore de video HD</li>
+                    <li><i class="fas fa-check"></i> 15 proiecte practice</li>
+                    <li><i class="fas fa-check"></i> Cod sursă pentru toate proiectele</li>
+                    <li><i class="fas fa-check"></i> Resurse descărcabile și cheat sheets</li>
+                    <li><i class="fas fa-check"></i> Acces pe viață la conținut</li>
+                    <li><i class="fas fa-check"></i> Update-uri gratuite</li>
+                    <li><i class="fas fa-check"></i> Certificat de finalizare</li>
+                    <li><i class="fas fa-check"></i> Suport Q&A de la instructor</li>
+                    <li><i class="fas fa-check"></i> Acces la comunitatea privată Discord</li>
+                    <li><i class="fas fa-check"></i> 30 zile garanție de returnare</li>
                 </ul>
             </section>
 
             <!-- Payment options -->
             <section>
                 <h3><i class="fas fa-credit-card"></i> Opțiuni de Plată</h3>
-                <table>
+                <table class="course-data-table course-pricing-table">
                     <thead>
                         <tr>
                             <th>Plan</th>
@@ -308,22 +308,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Acces Complet</strong></td>
-                            <td><strong>999 MDL</strong> <del>1,499 MDL</del></td>
-                            <td>Toate lecțiile + Certificat + Suport</td>
-                            <td><a href="register.html" class="btn btn-primary" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Înscrie-te</a></td>
+                            <td data-label="Plan"><strong>Acces Complet</strong></td>
+                            <td data-label="Preț"><strong>999 MDL</strong> <del>1,499 MDL</del></td>
+                            <td data-label="Beneficii">Toate lecțiile + Certificat + Suport</td>
+                            <td data-label="Acțiune"><a href="register.html" class="btn btn-primary btn-compact">Înscrie-te</a></td>
                         </tr>
                         <tr>
-                            <td><strong>Bundle 3 Cursuri</strong></td>
-                            <td><strong>2,499 MDL</strong> <del>4,499 MDL</del></td>
-                            <td>Acest curs + 2 la alegere + Extra bonusuri</td>
-                            <td><a href="register.html" class="btn btn-primary" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Înscrie-te</a></td>
+                            <td data-label="Plan"><strong>Bundle 3 Cursuri</strong></td>
+                            <td data-label="Preț"><strong>2,499 MDL</strong> <del>4,499 MDL</del></td>
+                            <td data-label="Beneficii">Acest curs + 2 la alegere + Extra bonusuri</td>
+                            <td data-label="Acțiune"><a href="register.html" class="btn btn-primary btn-compact">Înscrie-te</a></td>
                         </tr>
                         <tr>
-                            <td><strong>Acces Premium Anual</strong></td>
-                            <td><strong>4,999 MDL</strong> <del>9,999 MDL</del></td>
-                            <td>TOATE cursurile pentru 1 an</td>
-                            <td><a href="register.html" class="btn btn-primary" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Înscrie-te</a></td>
+                            <td data-label="Plan"><strong>Acces Premium Anual</strong></td>
+                            <td data-label="Preț"><strong>4,999 MDL</strong> <del>9,999 MDL</del></td>
+                            <td data-label="Beneficii">TOATE cursurile pentru 1 an</td>
+                            <td data-label="Acțiune"><a href="register.html" class="btn btn-primary btn-compact">Înscrie-te</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -356,16 +356,16 @@
             </section>
 
             <!-- CTA -->
-            <section class="hero" style="padding:2rem;">
-                <h2 style="font-size:1.4rem;"><i class="fas fa-rocket"></i> Gata să devii Full-Stack Developer?</h2>
+            <section class="hero course-cta">
+                <h2><i class="fas fa-rocket"></i> Gata să devii Full-Stack Developer?</h2>
                 <p>Oferta limitată - Reducere 33% valabilă doar astăzi!</p>
-                <div class="btn-group" style="justify-content:center;">
+                <div class="btn-group btn-group-centered">
                     <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
                 </div>
             </section>
         </article>
 
-        <aside>
+        <aside class="course-sidebar">
             <h3><i class="fas fa-info-circle"></i> Informații Rapide</h3>
             <ul class="aside-list">
                 <li><i class="fas fa-clock"></i> <strong>Durată:</strong> 12 săptămâni</li>
@@ -376,8 +376,8 @@
                 <li><i class="fas fa-shield-alt"></i> <strong>Garanție:</strong> 30 zile</li>
                 <li><i class="fas fa-users"></i> <strong>Cursanți:</strong> 9,234</li>
             </ul>
-            <a href="register.html" class="btn btn-danger" style="width:100%; margin-top:1rem; text-align:center;"><i class="fas fa-bolt"></i> Înscrie-te — 999 MDL</a>
-            <h3 style="margin-top:2rem;"><i class="fas fa-layer-group"></i> Cursuri Similare</h3>
+            <a href="register.html" class="btn btn-danger aside-cta-button"><i class="fas fa-bolt"></i> Înscrie-te — 999 MDL</a>
+            <h3 class="sidebar-section-heading"><i class="fas fa-layer-group"></i> Cursuri Similare</h3>
             <div class="course-card">
                 <p><strong><a href="course2.html">Data Science &amp; ML</a></strong></p>
                 <p><span class="badge badge-advanced">Avansat</span> &middot; 1,299 MDL</p>
@@ -421,5 +421,8 @@
             tick();
         })();
     </script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/course.js"></script>
 </body>
 </html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panou Admin - NeqCourse</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="../index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="single-col admin-page">
+
+        <!-- Hero -->
+        <section class="admin-hero">
+            <div>
+                <p class="section-eyebrow">Sistem intern</p>
+                <h2><i class="fas fa-shield-alt"></i> Panou de Administrare</h2>
+                <p>Gestionează utilizatorii, cursurile și activitatea platformei NeqCourse.</p>
+            </div>
+            <span class="admin-access-pill"><i class="fas fa-lock"></i> Acces Admin</span>
+        </section>
+
+        <!-- Demo notice -->
+        <div class="alert alert-warning admin-demo-notice">
+            <i class="fas fa-info-circle"></i>
+            <div>
+                <strong>Demo frontend-only.</strong>
+                Datele sunt stocate în <code>localStorage</code>.
+                Credențiale admin: <code>admin@neqcourse.com</code> / <code>Admin@2026</code>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <section>
+            <p class="section-eyebrow">Statistici</p>
+            <h3><i class="fas fa-chart-bar"></i> Prezentare generală</h3>
+            <div class="admin-stat-grid">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-num" id="stat-total-users">—</div>
+                    <div class="admin-stat-label"><i class="fas fa-users"></i> Total utilizatori</div>
+                </div>
+                <div class="admin-stat-card admin-stat-blue">
+                    <div class="admin-stat-num" id="stat-students">—</div>
+                    <div class="admin-stat-label"><i class="fas fa-user-graduate"></i> Studenți</div>
+                </div>
+                <div class="admin-stat-card admin-stat-purple">
+                    <div class="admin-stat-num" id="stat-admins">—</div>
+                    <div class="admin-stat-label"><i class="fas fa-user-shield"></i> Administratori</div>
+                </div>
+                <div class="admin-stat-card admin-stat-green">
+                    <div class="admin-stat-num" id="stat-new-today">—</div>
+                    <div class="admin-stat-label"><i class="fas fa-user-plus"></i> Înregistrați azi</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Users table -->
+        <section>
+            <div class="section-heading-row">
+                <div>
+                    <p class="section-eyebrow">Gestionare</p>
+                    <h3><i class="fas fa-users"></i> Utilizatori înregistrați</h3>
+                </div>
+                <a href="register.html" class="btn btn-primary btn-compact">
+                    <i class="fas fa-user-plus"></i> Adaugă utilizator
+                </a>
+            </div>
+            <div class="admin-table-wrap">
+                <table id="admin-users-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nume</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Înregistrat</th>
+                            <th>Cursuri</th>
+                            <th>Acțiuni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-tbody">
+                        <!-- Filled by admin.js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Courses overview -->
+        <section>
+            <p class="section-eyebrow">Conținut</p>
+            <h3><i class="fas fa-book-open"></i> Cursuri disponibile</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titlu</th>
+                        <th>Categorie</th>
+                        <th>Nivel</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="course1.html">Dezvoltare Web Full-Stack</a></td>
+                        <td>Web Development</td>
+                        <td><span class="badge badge-intermediate">Intermediar</span></td>
+                        <td><span class="admin-status-active">● Activ</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="course2.html">Data Science și Machine Learning</a></td>
+                        <td>Data Science</td>
+                        <td><span class="badge badge-advanced">Avansat</span></td>
+                        <td><span class="admin-status-active">● Activ</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="course3.html">Design UI/UX pentru Începători</a></td>
+                        <td>Design</td>
+                        <td><span class="badge badge-beginner">Începător</span></td>
+                        <td><span class="admin-status-active">● Activ</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="course4.html">Marketing Digital Avansat</a></td>
+                        <td>Marketing</td>
+                        <td><span class="badge badge-intermediate">Intermediar</span></td>
+                        <td><span class="admin-status-active">● Activ</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

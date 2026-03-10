@@ -21,86 +21,123 @@
         </nav>
     </header>
 
-    <main>
+    <main class="register-page">
 
-        <section>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
-                    <li>Înregistrare</li>
-                </ol>
-            </nav>
-
-            <h2><i class="fas fa-user-plus"></i> Creează Cont Gratuit</h2>
-            <p style="color:var(--text-muted); margin-bottom:1.5rem;">30 secunde — fără card bancar necesar.</p>
-
-            <!-- SOCIAL QUICK REGISTER -->
-            <div class="reg-quick">
-                <a href="#google" class="btn-social google btn-social-lg"><i class="fab fa-google"></i> Continuă cu Google</a>
-                <a href="#facebook" class="btn-social facebook btn-social-lg"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="#github" class="btn-social github btn-social-lg"><i class="fab fa-github"></i> GitHub</a>
+        <section class="register-panel">
+            <div class="register-hero">
+                <p class="register-kicker"><i class="fas fa-star"></i> Plan gratuit + activare instant</p>
+                <div class="register-hero-grid">
+                    <div>
+                        <h2><i class="fas fa-user-plus"></i> Creează-ți contul și intră direct în platformă</h2>
+                        <p>Acces rapid la cursuri, progres sincronizat și un onboarding clar pentru studenți care vor să înceapă fără fricțiune.</p>
+                    </div>
+                    <ul class="register-hero-highlights">
+                        <li>
+                            <strong>7 zile premium incluse</strong>
+                            <span>Testezi toate funcțiile fără card bancar.</span>
+                        </li>
+                        <li>
+                            <strong>Configurare în 30 secunde</strong>
+                            <span>Doar email, parolă și confirmarea contului.</span>
+                        </li>
+                        <li>
+                            <strong>Profil academic opțional</strong>
+                            <span>Completezi restul detaliilor doar dacă vrei recomandări mai bune.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="register-hero-meta">
+                    <span><i class="fas fa-lock"></i> Date protejate</span>
+                    <span><i class="fas fa-credit-card"></i> Fără plată inițială</span>
+                    <span><i class="fas fa-bolt"></i> Activare imediată</span>
+                </div>
             </div>
 
-            <div class="reg-divider"><span>sau cu email</span></div>
+            <div class="register-card">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                        <li>Înregistrare</li>
+                    </ol>
+                </nav>
 
-            <!-- MAIN FORM — only 3 required fields -->
-            <form action="welcome.html" method="post" novalidate class="reg-form">
-
-                <div class="form-group-full">
-                    <label for="email"><i class="fas fa-envelope"></i> Adresă Gmail <sup>*</sup></label>
-                    <div class="input-icon-wrap">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" name="email" required placeholder="numetau@gmail.com" autocomplete="email">
+                <div class="register-card-head">
+                    <div>
+                        <h3><i class="fas fa-user-circle"></i> Creează Cont Gratuit</h3>
+                        <p class="register-subtitle">Începi cu elementele esențiale, iar profilul complet îl poți adăuga după ce intri în platformă.</p>
                     </div>
-                    <span class="form-hint">Folosit pentru autentificare și notificări.</span>
+                    <div class="register-trust-pill">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>cont securizat</span>
+                    </div>
                 </div>
 
-                <div class="form-row-2">
+                <div class="reg-quick">
+                    <a href="#google" class="btn-social google btn-social-lg"><i class="fab fa-google"></i> Continuă cu Google</a>
+                    <a href="#facebook" class="btn-social facebook btn-social-lg"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#github" class="btn-social github btn-social-lg"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+
+                <div class="reg-divider"><span>sau creează cont cu email</span></div>
+
+                <form action="welcome.html" method="post" novalidate class="reg-form">
+
                     <div class="form-group-full">
-                        <label for="password"><i class="fas fa-lock"></i> Parolă <sup>*</sup></label>
+                        <label for="email"><i class="fas fa-envelope"></i> Adresă Email <sup>*</sup></label>
                         <div class="input-icon-wrap">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="password" name="password" required minlength="8" placeholder="min. 8 caractere" autocomplete="new-password">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" required placeholder="numetau@gmail.com" autocomplete="email">
                         </div>
-                        <div class="pw-strength" id="pwBar" data-level="0"><span></span><span></span><span></span><span></span></div>
+                        <span class="form-hint">Folosită pentru autentificare, notificări și recuperarea accesului.</span>
                     </div>
-                    <div class="form-group-full">
-                        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmă Parola <sup>*</sup></label>
-                        <div class="input-icon-wrap">
-                            <i class="fas fa-lock-open"></i>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Repetă parola" autocomplete="new-password">
+
+                    <div class="form-row-2">
+                        <div class="form-group-full">
+                            <label for="password"><i class="fas fa-lock"></i> Parolă <sup>*</sup></label>
+                            <div class="input-icon-wrap">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" name="password" required minlength="8" placeholder="min. 8 caractere" autocomplete="new-password">
+                            </div>
+                            <div class="pw-strength" id="pwBar" data-level="0"><span></span><span></span><span></span><span></span></div>
+                            <span class="form-hint">Combină litere mari, mici și cifre pentru o parolă mai sigură.</span>
+                        </div>
+                        <div class="form-group-full">
+                            <label for="confirmPassword"><i class="fas fa-lock"></i> Confirmă Parola <sup>*</sup></label>
+                            <div class="input-icon-wrap">
+                                <i class="fas fa-lock-open"></i>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Repetă parola" autocomplete="new-password">
+                            </div>
+                            <span class="form-hint">Asigură-te că parolele coincid înainte de trimitere.</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- MANDATORY TERMS -->
-                <div class="reg-terms">
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="terms" required>
-                        Sunt de acord cu <a href="#terms"><strong>Termenii</strong></a> și <a href="#privacy"><strong>Politica de Confidențialitate</strong></a> <sup>*</sup>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="age" required>
-                        Confirm că am cel puțin <strong>16 ani</strong> <sup>*</sup>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="newsletter" checked>
-                        Vreau să primesc oferte și cursuri noi (opțional)
-                    </label>
-                </div>
+                    <div class="reg-terms">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            Sunt de acord cu <a href="#terms"><strong>Termenii</strong></a> și <a href="#privacy"><strong>Politica de Confidențialitate</strong></a> <sup>*</sup>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="age" required>
+                            Confirm că am cel puțin <strong>16 ani</strong> <sup>*</sup>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" checked>
+                            Vreau să primesc oferte și cursuri noi pe email
+                        </label>
+                    </div>
 
-                <button type="submit" class="btn btn-primary btn-full">
-                    <i class="fas fa-rocket"></i> Creează Contul Gratuit
-                </button>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-rocket"></i> Creează Contul Gratuit
+                    </button>
 
-                <p style="text-align:center; margin-top:1rem; font-size:0.88rem; color:var(--text-muted);">Ai deja cont? <a href="login.html"><strong>Autentifică-te</strong></a></p>
-            </form>
+                    <p class="register-login-link">Ai deja cont? <a href="login.html"><strong>Autentifică-te</strong></a></p>
+                </form>
+            </div>
 
-            <!-- OPTIONAL PROFILE — collapsible -->
-            <details class="reg-optional">
-                <summary><i class="fas fa-sliders-h"></i> Completează profilul (opțional) <span class="badge badge-beginner" style="font-size:0.72rem; padding:0.15rem 0.55rem;">opțional</span></summary>
+            <details class="reg-optional register-optional-shell">
+                <summary><i class="fas fa-sliders-h"></i> Completează profilul (opțional) <span class="badge badge-beginner register-optional-badge">opțional</span></summary>
 
-                <form method="post" novalidate style="margin-top:1.25rem;">
+                <form method="post" novalidate class="register-optional-form">
 
                     <fieldset>
                         <legend><i class="fas fa-user"></i> Date Personale</legend>
@@ -129,7 +166,9 @@
                                 <label for="gender">Gen</label>
                                 <select id="gender" name="gender">
                                     <option value="">-- Selectează --</option>
-                                    <option>Masculin</option><option>Feminin</option><option>Prefer să nu precizez</option>
+                                    <option>Masculin</option>
+                                    <option>Feminin</option>
+                                    <option>Prefer să nu precizez</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -147,7 +186,7 @@
                             </div>
                         </div>
                         <label for="avatar">Fotografie de Profil</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/png,image/jpeg,image/webp" style="padding:0.3rem 0; border:none;">
+                        <input type="file" id="avatar" name="avatar" accept="image/png,image/jpeg,image/webp" class="register-file-input">
                         <span class="form-hint">JPG / PNG / WebP · max. 2 MB</span>
                     </fieldset>
 
@@ -192,7 +231,7 @@
                     <fieldset>
                         <legend><i class="fas fa-brain"></i> Preferințe de Învățare</legend>
                         <label>Nivel experiență:</label>
-                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem 1.5rem; margin-bottom:0.75rem;">
+                        <div class="register-experience-row">
                             <label class="radio-label"><input type="radio" name="experience" value="none"> Fără experiență</label>
                             <label class="radio-label"><input type="radio" name="experience" value="beginner" checked> Începător</label>
                             <label class="radio-label"><input type="radio" name="experience" value="intermediate"> Intermediar</label>
@@ -208,25 +247,25 @@
                             <option value="freelance">Freelancing</option>
                             <option value="portfolio">Portofoliu</option>
                         </select>
-                        <label style="margin-top:0.75rem;">Domenii de interes:</label>
+                        <label class="register-interest-label">Domenii de interes:</label>
                         <div class="interest-grid">
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="web" checked> 💻 Web Dev</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="mobile"> 📱 Mobile</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="data"> 📊 Data Science</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="ai"> 🤖 AI / ML</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="design"> 🎨 UI/UX Design</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="cybersec"> 🔒 Cybersecurity</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="cloud"> ☁️ Cloud</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="marketing"> 📢 Marketing</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="business"> 💼 Business</label>
-                            <label class="checkbox-label"><input type="checkbox" name="interest" value="db"> 🗄️ Baze de Date</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="web" checked> Web Dev</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="mobile"> Mobile</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="data"> Data Science</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="ai"> AI / ML</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="design"> UI/UX Design</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="cybersec"> Cybersecurity</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="cloud"> Cloud</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="marketing"> Marketing</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="business"> Business</label>
+                            <label class="checkbox-label"><input type="checkbox" name="interest" value="db"> Baze de Date</label>
                         </div>
                     </fieldset>
 
                     <fieldset>
                         <legend><i class="fas fa-share-alt"></i> Profil Public</legend>
                         <label for="bio">Bio (opțional)</label>
-                        <textarea id="bio" name="bio" rows="3" placeholder="Spune-ne ceva despre tine..." style="width:100%;padding:0.65rem 0.95rem;border:1.5px solid var(--gray-300);border-radius:var(--radius-sm);font-family:inherit;font-size:0.9rem;resize:vertical;"></textarea>
+                        <textarea id="bio" name="bio" rows="3" placeholder="Spune-ne ceva despre tine..." class="register-bio"></textarea>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="linkedin">LinkedIn</label>
@@ -241,30 +280,61 @@
                         <div class="input-icon-wrap"><i class="fas fa-gift"></i><input type="text" id="referralCode" name="referralCode" placeholder="ex.: PROMO-2026" maxlength="20"></div>
                     </fieldset>
 
-                    <button type="submit" class="btn btn-outline" style="margin-top:0.5rem;">
+                    <button type="submit" class="btn btn-outline register-save-btn">
                         <i class="fas fa-save"></i> Salvează Profilul
                     </button>
                 </form>
             </details>
         </section>
 
-        <aside>
-            <h3><i class="fas fa-gift"></i> Beneficiile Contului</h3>
-            <ul>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces la cursuri gratuite imediat</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> 7 zile de probă premium</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Certificări recunoscute internațional</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Învățare în ritmul tău, 24/7</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Suport de la instructori experți</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Comunitate activă de cursanți</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Monitorizare progres în timp real</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Garanție de returnare 30 de zile</li>
-                <li><i class="fas fa-check" style="color:#22c55e;"></i> Reducere studențească 20%</li>
-            </ul>
+        <aside class="register-sidebar">
+            <div class="aside-panel aside-panel-accent">
+                <p class="aside-eyebrow">Ce primești</p>
+                <h3><i class="fas fa-gift"></i> Beneficiile Contului</h3>
+                <ul class="aside-list">
+                    <li><i class="fas fa-check"></i> Acces imediat la cursuri gratuite</li>
+                    <li><i class="fas fa-check"></i> 7 zile de probă premium</li>
+                    <li><i class="fas fa-check"></i> Certificări recunoscute internațional</li>
+                    <li><i class="fas fa-check"></i> Progres și recomandări personalizate</li>
+                    <li><i class="fas fa-check"></i> Reducere studențească de până la 20%</li>
+                </ul>
 
-            <div class="alert alert-success" style="margin-top:1rem;">
-                <i class="fas fa-users"></i>
-                <div><strong>1,247 studenți</strong> s-au înregistrat luna aceasta!</div>
+                <div class="alert alert-success register-sidebar-alert">
+                    <i class="fas fa-users"></i>
+                    <div><strong>1,247 studenți</strong> s-au înregistrat luna aceasta.</div>
+                </div>
+            </div>
+
+            <div class="aside-panel">
+                <p class="aside-eyebrow">Semnale de încredere</p>
+                <div class="register-mini-stats">
+                    <div>
+                        <strong>4.9/5</strong>
+                        <span>satisfacție medie</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span>acces la platformă</span>
+                    </div>
+                    <div>
+                        <strong>30 zile</strong>
+                        <span>garanție de returnare</span>
+                    </div>
+                    <div>
+                        <strong>100%</strong>
+                        <span>onboarding online</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aside-panel">
+                <p class="aside-eyebrow">Cum funcționează</p>
+                <h3><i class="fas fa-route"></i> Proces rapid</h3>
+                <ol class="register-steps">
+                    <li>Completezi datele de bază și confirmi condițiile platformei.</li>
+                    <li>Primești acces imediat la dashboard și recomandări inițiale.</li>
+                    <li>Completezi profilul academic doar dacă vrei sugestii mai precise.</li>
+                </ol>
             </div>
         </aside>
 
@@ -277,5 +347,8 @@
         <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
     </footer>
 
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/register.js"></script>
 </body>
 </html>

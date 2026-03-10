@@ -21,7 +21,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="course-page">
 
         <!-- Dialog Preview -->
         <dialog id="previewDialog">
@@ -34,7 +34,7 @@
                     <source src="#" type="video/mp4">
                     <p>Browserul tău nu suportă video HTML5.</p>
                 </video>
-                <p style="margin-top:1rem; color:var(--text-muted);">Lecție gratuită: <strong>Introducere în Python pentru Data Science</strong> &middot; 28 min</p>
+                <p class="dialog-teaser">Lecție gratuită: <strong>Introducere în Python pentru Data Science</strong> &middot; 28 min</p>
             </div>
             <div class="dialog-footer">
                 <a href="register.html" class="btn btn-danger btn-sm"><i class="fas fa-user-plus"></i> Înscrie-te</a>
@@ -42,7 +42,7 @@
             </div>
         </dialog>
 
-        <article>
+        <article class="course-article">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
@@ -53,7 +53,7 @@
             <!-- Course Header -->
             <div class="course-header">
                 <h2><i class="fas fa-chart-bar"></i> Data Science și Machine Learning</h2>
-                <div class="course-meta" style="color:#ccd6f6; margin-top:0.75rem;">
+                <div class="course-meta">
                     <span><i class="fas fa-user-tie"></i> Dr. Maria Ionescu</span>
                     <span><i class="fas fa-clock"></i> 16 săptămâni</span>
                     <span><span class="badge badge-advanced">Avansat</span></span>
@@ -63,23 +63,23 @@
                     1,499 MDL <del>2,299 MDL</del>
                     <span class="badge-discount">-35%</span>
                 </div>
-                <div style="margin:0.5rem 0 0.25rem; color:#fbbf24;">
+                <div class="course-rating">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span style="color:#ccd6f6; font-size:0.9rem;"> 4.9/5 &bull; 0 recenzii &bull; 0 cursanți</span>
+                    <span class="course-rating-note"> 4.9/5 &bull; 0 recenzii &bull; 0 cursanți</span>
                 </div>
                 <!-- Video Thumb -->
-                <div class="video-thumb" onclick="document.getElementById('previewDialog').showModal()" style="margin:1.25rem 0;">
+                <div class="video-thumb" onclick="document.getElementById('previewDialog').showModal()">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Preview curs Data Science" loading="lazy">
                     <div class="video-play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <!-- Countdown -->
-                <p style="color:#fbbf24; font-size:0.85rem; margin-bottom:0.5rem;"><i class="fas fa-fire"></i> Ofertă specială expiră în:</p>
+                <p class="course-offer-label"><i class="fas fa-fire"></i> Ofertă specială expiră în:</p>
                 <div class="countdown">
                     <div class="countdown-box"><span class="countdown-num" id="cd2-h">23</span><small>Ore</small></div>
                     <div class="countdown-box"><span class="countdown-num" id="cd2-m">59</span><small>Min</small></div>
                     <div class="countdown-box"><span class="countdown-num" id="cd2-s">59</span><small>Sec</small></div>
                 </div>
-                <div class="btn-group" style="margin-top:1.25rem;">
+                <div class="btn-group course-header-actions">
                     <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
                     <button class="btn btn-ghost" onclick="document.getElementById('previewDialog').showModal()"><i class="fas fa-play-circle"></i> Lecții Demo</button>
                     <a href="#" class="btn btn-ghost"><i class="fas fa-heart"></i> Salvează</a>
@@ -97,18 +97,18 @@
             <section>
                 <h3><i class="fas fa-bullseye"></i> Ce vei învăța</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Python pentru Data Science: NumPy, pandas, Matplotlib</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Analiza exploratorie a datelor (EDA)</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Curățarea și preprocesarea datelor</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Statistică și probabilități pentru Data Science</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Machine Learning: Supervised și Unsupervised Learning</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Algoritmi: Regression, Classification, Clustering</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Deep Learning cu TensorFlow și Keras</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Neural Networks și CNN</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Natural Language Processing (NLP)</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Model evaluation, tuning și deployment</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Big Data cu Spark</li>
-                    <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Cloud ML: AWS SageMaker, Google Cloud AI</li>
+                    <li><i class="fas fa-check-circle"></i> Python pentru Data Science: NumPy, pandas, Matplotlib</li>
+                    <li><i class="fas fa-check-circle"></i> Analiza exploratorie a datelor (EDA)</li>
+                    <li><i class="fas fa-check-circle"></i> Curățarea și preprocesarea datelor</li>
+                    <li><i class="fas fa-check-circle"></i> Statistică și probabilități pentru Data Science</li>
+                    <li><i class="fas fa-check-circle"></i> Machine Learning: Supervised și Unsupervised Learning</li>
+                    <li><i class="fas fa-check-circle"></i> Algoritmi: Regression, Classification, Clustering</li>
+                    <li><i class="fas fa-check-circle"></i> Deep Learning cu TensorFlow și Keras</li>
+                    <li><i class="fas fa-check-circle"></i> Neural Networks și CNN</li>
+                    <li><i class="fas fa-check-circle"></i> Natural Language Processing (NLP)</li>
+                    <li><i class="fas fa-check-circle"></i> Model evaluation, tuning și deployment</li>
+                    <li><i class="fas fa-check-circle"></i> Big Data cu Spark</li>
+                    <li><i class="fas fa-check-circle"></i> Cloud ML: AWS SageMaker, Google Cloud AI</li>
                 </ul>
             </section>
 
@@ -220,7 +220,7 @@
             <!-- Technologies -->
             <section>
                 <h3><i class="fas fa-tools"></i> Tehnologii și Tools</h3>
-                <table>
+                <table class="course-data-table course-tech-table">
                     <thead>
                         <tr>
                             <th>Categorie</th>
@@ -228,14 +228,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Limbaj</strong></td><td>Python 3.10+</td></tr>
-                        <tr><td><strong>Data Processing</strong></td><td>NumPy, pandas, SciPy</td></tr>
-                        <tr><td><strong>Vizualizare</strong></td><td>Matplotlib, Seaborn, Plotly</td></tr>
-                        <tr><td><strong>Machine Learning</strong></td><td>scikit-learn, XGBoost, LightGBM</td></tr>
-                        <tr><td><strong>Deep Learning</strong></td><td>TensorFlow, Keras, PyTorch</td></tr>
-                        <tr><td><strong>NLP</strong></td><td>NLTK, spaCy, Transformers</td></tr>
-                        <tr><td><strong>Big Data</strong></td><td>Apache Spark, Dask</td></tr>
-                        <tr><td><strong>Cloud &amp; Deployment</strong></td><td>AWS, GCP, Docker, Flask</td></tr>
+                        <tr><td data-label="Categorie"><strong>Limbaj</strong></td><td data-label="Tehnologii">Python 3.10+</td></tr>
+                        <tr><td data-label="Categorie"><strong>Data Processing</strong></td><td data-label="Tehnologii">NumPy, pandas, SciPy</td></tr>
+                        <tr><td data-label="Categorie"><strong>Vizualizare</strong></td><td data-label="Tehnologii">Matplotlib, Seaborn, Plotly</td></tr>
+                        <tr><td data-label="Categorie"><strong>Machine Learning</strong></td><td data-label="Tehnologii">scikit-learn, XGBoost, LightGBM</td></tr>
+                        <tr><td data-label="Categorie"><strong>Deep Learning</strong></td><td data-label="Tehnologii">TensorFlow, Keras, PyTorch</td></tr>
+                        <tr><td data-label="Categorie"><strong>NLP</strong></td><td data-label="Tehnologii">NLTK, spaCy, Transformers</td></tr>
+                        <tr><td data-label="Categorie"><strong>Big Data</strong></td><td data-label="Tehnologii">Apache Spark, Dask</td></tr>
+                        <tr><td data-label="Categorie"><strong>Cloud &amp; Deployment</strong></td><td data-label="Tehnologii">AWS, GCP, Docker, Flask</td></tr>
                     </tbody>
                 </table>
             </section>
@@ -302,15 +302,15 @@
             <section>
                 <h3><i class="fas fa-gift"></i> Bonusuri Incluse</h3>
                 <ul>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 65+ ore de video 4K</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 20+ proiecte hands-on cu date reale</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> 50+ Jupyter Notebooks</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Datasets premium (10GB+)</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Cheat sheets și resurse descărcabile</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Acces la GPU cloud pentru training</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Sesiuni Q&A live cu instructorul (2x/lună)</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Certificat profesional</li>
-                    <li><i class="fas fa-check" style="color:#22c55e;"></i> Career guidance și ajutor pentru interviuri</li>
+                    <li><i class="fas fa-check"></i> 65+ ore de video 4K</li>
+                    <li><i class="fas fa-check"></i> 20+ proiecte hands-on cu date reale</li>
+                    <li><i class="fas fa-check"></i> 50+ Jupyter Notebooks</li>
+                    <li><i class="fas fa-check"></i> Datasets premium (10GB+)</li>
+                    <li><i class="fas fa-check"></i> Cheat sheets și resurse descărcabile</li>
+                    <li><i class="fas fa-check"></i> Acces la GPU cloud pentru training</li>
+                    <li><i class="fas fa-check"></i> Sesiuni Q&A live cu instructorul (2x/lună)</li>
+                    <li><i class="fas fa-check"></i> Certificat profesional</li>
+                    <li><i class="fas fa-check"></i> Career guidance și ajutor pentru interviuri</li>
                 </ul>
             </section>
 
@@ -324,16 +324,16 @@
             </section>
 
             <!-- CTA -->
-            <section class="hero" style="padding:2rem;">
-                <h2 style="font-size:1.4rem;"><i class="fas fa-rocket"></i> Înscrie-te și Devino Data Scientist!</h2>
-                <div class="btn-group" style="justify-content:center; margin-top:1rem;">
+            <section class="hero course-cta">
+                <h2><i class="fas fa-rocket"></i> Înscrie-te și Devino Data Scientist!</h2>
+                <div class="btn-group btn-group-centered btn-group-top-md">
                     <a href="register.html" class="btn btn-danger"><i class="fas fa-user-plus"></i> Înscrie-te Acum</a>
                     <button class="btn btn-outline" onclick="document.getElementById('previewDialog').showModal()"><i class="fas fa-play-circle"></i> Demo Gratuit</button>
                 </div>
             </section>
         </article>
 
-        <aside>
+        <aside class="course-sidebar">
             <h3><i class="fas fa-info-circle"></i> Informații Rapide</h3>
             <ul class="aside-list">
                 <li><i class="fas fa-clock"></i> <strong>Durată:</strong> 16 săptămâni</li>
@@ -344,8 +344,8 @@
                 <li><i class="fas fa-download"></i> <strong>Resurse:</strong> 50+ Notebooks, 10GB+ date</li>
                 <li><i class="fas fa-users"></i> <strong>Cursanți:</strong> 12,847</li>
             </ul>
-            <a href="register.html" class="btn btn-danger" style="width:100%; margin-top:1rem; text-align:center;"><i class="fas fa-bolt"></i> Înscrie-te — 1,299 MDL</a>
-            <h3 style="margin-top:2rem;"><i class="fas fa-layer-group"></i> Cursuri Similare</h3>
+            <a href="register.html" class="btn btn-danger aside-cta-button"><i class="fas fa-bolt"></i> Înscrie-te — 1,299 MDL</a>
+            <h3 class="sidebar-section-heading"><i class="fas fa-layer-group"></i> Cursuri Similare</h3>
             <div class="course-card">
                 <p><strong><a href="course1.html">Dezvoltare Web Full-Stack</a></strong></p>
                 <p><span class="badge badge-advanced">Avansat</span> &middot; 1,199 MDL</p>
@@ -385,5 +385,8 @@
             tick();
         })();
     </script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/course.js"></script>
 </body>
 </html>

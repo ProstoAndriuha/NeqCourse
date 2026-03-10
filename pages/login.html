@@ -21,25 +21,42 @@
         </nav>
     </header>
 
-    <main>
+    <main class="auth-page">
 
-        <section>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
-                    <li>Autentificare</li>
-                </ol>
-            </nav>
-
-            <h2><i class="fas fa-lock"></i> Autentificare</h2>
-            <p>Intră în contul tău pentru a continua învățarea.</p>
-
-            <div class="alert alert-info">
-                <i class="fas fa-shield-alt"></i>
-                <div>Conexiunea ta este <strong>securizată</strong>. Datele sunt criptate cu SSL/TLS.</div>
+        <section class="auth-panel">
+            <div class="auth-hero">
+                <p class="auth-kicker"><i class="fas fa-lock"></i> Acces securizat la contul tău</p>
+                <h2><i class="fas fa-user-shield"></i> Revino în platformă și continuă exact de unde ai rămas</h2>
+                <p>Autentificare rapidă, protecție pentru sesiuni și acces imediat la progres, proiecte și recomandări personalizate.</p>
+                <div class="auth-hero-points">
+                    <span><i class="fas fa-shield-halved"></i> criptare SSL/TLS</span>
+                    <span><i class="fas fa-mobile-alt"></i> suport 2FA</span>
+                    <span><i class="fas fa-bolt"></i> login în câteva secunde</span>
+                </div>
             </div>
 
-            <form action="dashboard.html" method="post" novalidate>
+            <div class="auth-card">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                        <li>Autentificare</li>
+                    </ol>
+                </nav>
+
+                <div class="auth-card-head">
+                    <div>
+                        <h3><i class="fas fa-lock"></i> Autentificare</h3>
+                        <p class="auth-subtitle">Intră în contul tău pentru a continua învățarea și a-ți vedea progresul.</p>
+                    </div>
+                    <div class="auth-badge"><i class="fas fa-shield-halved"></i> securizat</div>
+                </div>
+
+                <div class="alert alert-info auth-alert">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>Conexiunea ta este <strong>securizată</strong>. Datele sunt criptate cu SSL/TLS.</div>
+                </div>
+
+                <form action="dashboard.html" method="post" novalidate class="auth-form">
                 <fieldset>
                     <legend><i class="fas fa-user-circle"></i> Date de Autentificare</legend>
 
@@ -55,23 +72,23 @@
                         <input type="password" id="password" name="password" required placeholder="Parola ta" autocomplete="current-password">
                     </div>
 
-                    <label for="twofa" style="margin-top:0.85rem;">Cod 2FA (dacă este activat):</label>
+                    <label for="twofa" class="auth-spaced-label">Cod 2FA (dacă este activat):</label>
                     <div class="input-icon-wrap">
                         <i class="fas fa-mobile-alt"></i>
                         <input type="text" id="twofa" name="twofa" placeholder="6 cifre din aplicația Authenticator" maxlength="6" pattern="[0-9]{6}" autocomplete="one-time-code">
                     </div>
                     <span class="form-hint">Lăsați gol dacă nu ați activat autentificarea în doi pași.</span>
 
-                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:1rem;">
-                        <label class="checkbox-label" style="margin-top:0;">
+                    <div class="auth-inline-row">
+                        <label class="checkbox-label auth-remember">
                             <input type="checkbox" id="remember" name="remember">
                             Ține-mă minte pe acest dispozitiv (30 zile)
                         </label>
-                        <a href="#reset-password" style="font-size:0.85rem;"><i class="fas fa-key"></i> Ai uitat parola?</a>
+                        <a href="#reset-password" class="auth-inline-link"><i class="fas fa-key"></i> Ai uitat parola?</a>
                     </div>
 
-                    <label for="device" style="margin-top:0.85rem;">Tipul dispozitivului:</label>
-                    <select id="device" name="device" style="max-width:220px;">
+                    <label for="device" class="auth-spaced-label">Tipul dispozitivului:</label>
+                    <select id="device" name="device" class="auth-device-select">
                         <option value="personal" selected>Dispozitiv personal</option>
                         <option value="shared">Dispozitiv partajat / public</option>
                     </select>
@@ -86,35 +103,61 @@
                         </button>
                     </div>
                 </fieldset>
-            </form>
+                </form>
 
-            <p class="mt-2">
-                <a href="#reset-password"><i class="fas fa-key"></i> Ai uitat parola? Resetează-o aici</a>
-            </p>
-            <p>Nu ai cont? <a href="register.html"><strong>Înregistrează-te acum — Este Gratuit!</strong></a></p>
+                <p class="mt-2 auth-bottom-link">
+                    <a href="#reset-password"><i class="fas fa-key"></i> Ai uitat parola? Resetează-o aici</a>
+                </p>
+                <p class="auth-register-link">Nu ai cont? <a href="register.html"><strong>Înregistrează-te acum — Este Gratuit!</strong></a></p>
 
-            <h3 style="margin-top:1.5rem;"><i class="fas fa-share-alt"></i> Autentificare rapidă cu:</h3>
-            <div class="social-login">
-                <a href="#google" class="btn-social google"><i class="fab fa-google"></i> Google</a>
-                <a href="#facebook" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="#github" class="btn-social github"><i class="fab fa-github"></i> GitHub</a>
-                <a href="#linkedin" class="btn-social linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <h3 class="auth-social-title"><i class="fas fa-share-alt"></i> Autentificare rapidă cu:</h3>
+                <div class="social-login auth-social-login">
+                    <a href="#google" class="btn-social google"><i class="fab fa-google"></i> Google</a>
+                    <a href="#facebook" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#github" class="btn-social github"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#linkedin" class="btn-social linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                </div>
             </div>
         </section>
 
-        <aside>
-            <h3><i class="fas fa-info-circle"></i> Sfaturi de Securitate</h3>
-            <ul>
-                <li><i class="fas fa-shield-alt" style="color:var(--primary);"></i> Nu împărți niciodată parola cu altcineva</li>
-                <li><i class="fas fa-key" style="color:var(--primary);"></i> Folosește o parolă unică și puternică</li>
-                <li><i class="fas fa-eye-slash" style="color:var(--primary);"></i> Verifică URL-ul site-ului înainte</li>
-                <li><i class="fas fa-mobile-alt" style="color:var(--primary);"></i> Activează autentificarea în doi pași</li>
-                <li><i class="fas fa-sign-out-alt" style="color:var(--primary);"></i> Deloghează-te pe dispozitivele partajate</li>
-            </ul>
+        <aside class="auth-sidebar">
+            <div class="aside-panel aside-panel-accent">
+                <p class="aside-eyebrow">Siguranță</p>
+                <h3><i class="fas fa-info-circle"></i> Sfaturi de Securitate</h3>
+                <ul class="aside-list">
+                    <li><i class="fas fa-shield-alt"></i> Nu împărți niciodată parola cu altcineva</li>
+                    <li><i class="fas fa-key"></i> Folosește o parolă unică și puternică</li>
+                    <li><i class="fas fa-eye-slash"></i> Verifică URL-ul site-ului înainte</li>
+                    <li><i class="fas fa-mobile-alt"></i> Activează autentificarea în doi pași</li>
+                    <li><i class="fas fa-sign-out-alt"></i> Deloghează-te pe dispozitivele partajate</li>
+                </ul>
 
-            <div class="alert alert-warning" style="margin-top:1rem; font-size:0.82rem;">
-                <i class="fas fa-exclamation-triangle"></i>
-                <div>NeqCourse <strong>niciodată</strong> nu va cere parola ta prin email.</div>
+                <div class="alert alert-warning auth-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>NeqCourse <strong>niciodată</strong> nu va cere parola ta prin email.</div>
+                </div>
+            </div>
+
+            <div class="aside-panel">
+                <p class="aside-eyebrow">Acces rapid</p>
+                <div class="register-mini-stats">
+                    <div>
+                        <strong>2FA</strong>
+                        <span>suport pentru protecție suplimentară</span>
+                    </div>
+                    <div>
+                        <strong>30 zile</strong>
+                        <span>remember me pe device personal</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span>acces la cursuri și dashboard</span>
+                    </div>
+                    <div>
+                        <strong>Instant</strong>
+                        <span>sincronizare progres după login</span>
+                    </div>
+                </div>
             </div>
         </aside>
 
@@ -127,5 +170,8 @@
         <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
     </footer>
 
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NeqCourse</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="../index.html"><i class="fas fa-graduation-cap"></i> NeqCourse</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Acasă</a></li>
+                <li><a href="courses.html">Cursuri</a></li>
+                <li><a href="login.html">Autentificare</a></li>
+                <li><a href="register.html">Înregistrare</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="single-col dashboard-page">
+
+        <!-- Hero -->
+        <section class="dashboard-hero">
+            <div class="dashboard-hero-text">
+                <p class="section-eyebrow">Contul meu</p>
+                <h2 id="dash-greeting"><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                <p id="dash-email" class="dash-subtitle"></p>
+            </div>
+            <div class="dashboard-hero-right">
+                <span class="dash-role-badge" id="dash-role-badge">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="dash-role">Student</span>
+                </span>
+            </div>
+        </section>
+
+        <!-- Admin banner (shown only for admins) -->
+        <div class="alert alert-info dash-admin-banner" id="dash-admin-banner" style="display:none">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+                Ești autentificat ca <strong>Administrator</strong>.
+                <a href="admin.html">Accesează Panoul de Administrare <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <section>
+            <div class="dash-stat-grid">
+                <div class="dash-stat-card">
+                    <div class="dash-stat-num" id="dash-course-count">0</div>
+                    <div class="dash-stat-label"><i class="fas fa-book-open"></i> Cursuri înscrise</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-num" id="dash-completed-count">0</div>
+                    <div class="dash-stat-label"><i class="fas fa-check-circle"></i> Finalizate</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-num">0</div>
+                    <div class="dash-stat-label"><i class="fas fa-certificate"></i> Certificate</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enrolled courses -->
+        <section>
+            <div class="section-heading-row">
+                <div>
+                    <p class="section-eyebrow">Activitate</p>
+                    <h3><i class="fas fa-graduation-cap"></i> Cursurile mele</h3>
+                </div>
+                <a href="courses.html" class="btn btn-outline btn-compact">
+                    <i class="fas fa-plus"></i> Adaugă curs
+                </a>
+            </div>
+            <div id="dash-course-list" class="dash-course-list"></div>
+        </section>
+
+        <!-- Profile -->
+        <section>
+            <p class="section-eyebrow">Cont</p>
+            <h3><i class="fas fa-user"></i> Profilul meu</h3>
+            <div class="dash-profile-grid">
+                <div class="dash-profile-item">
+                    <span class="dash-profile-label">Nume</span>
+                    <span class="dash-profile-value" id="dash-profile-name">—</span>
+                </div>
+                <div class="dash-profile-item">
+                    <span class="dash-profile-label">Email</span>
+                    <span class="dash-profile-value" id="dash-profile-email">—</span>
+                </div>
+                <div class="dash-profile-item">
+                    <span class="dash-profile-label">Rol</span>
+                    <span class="dash-profile-value" id="dash-profile-role">—</span>
+                </div>
+            </div>
+            <div class="btn-group" style="margin-top:1.25rem">
+                <a href="courses.html" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Explorează cursuri
+                </a>
+                <button id="dash-logout-btn" class="btn btn-outline">
+                    <i class="fas fa-sign-out-alt"></i> Deconectare
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="footer-brand"><i class="fas fa-graduation-cap"></i> NeqCourse</p>
+        <p class="footer-contact"><i class="fas fa-envelope"></i> contact@neqcourse.com</p>
+        <p><a href="../index.html">← Înapoi la pagina principală</a></p>
+        <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
