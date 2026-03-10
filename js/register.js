@@ -3,17 +3,17 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Redirect if already logged in
+
     if (typeof NeqAuth !== 'undefined' && NeqAuth.isLoggedIn()) {
         window.location.href = 'dashboard.html';
         return;
     }
 
-    // ---- Password Show / Hide ----
+
     addPasswordToggle(document.getElementById('password'));
     addPasswordToggle(document.getElementById('confirmPassword'));
 
-    // ---- Password Strength Bar ----
+
     const passwordEl = document.getElementById('password');
     const pwBar      = document.getElementById('pwBar');
     if (passwordEl && pwBar) {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Confirm Password Live Check ----
+
     const confirmEl = document.getElementById('confirmPassword');
     if (confirmEl) {
         confirmEl.addEventListener('input', checkMatch);
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Main Register Form Submit ----
+
     const regForm = document.querySelector('.reg-form');
     if (regForm) {
         regForm.addEventListener('submit', function (e) {
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     showAlert('danger', result.error);
                     return;
                 }
-                // Auto-login after registration
+
                 NeqAuth.login(emailVal, pwVal);
             }
 
@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Helpers ----
 
     function addPasswordToggle(input) {
         if (!input) return;

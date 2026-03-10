@@ -1,15 +1,15 @@
-// NeqCourse — Admin panel
+
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Requires admin — redirects to ../index.html if not admin
+
     if (typeof NeqAuth === 'undefined' || !NeqAuth.requireAdmin('../index.html')) return;
 
     renderStats();
     renderUsersTable();
 
-    // ---- Stats ----
+
     function renderStats() {
         var users    = NeqAuth.getAllUsers();
         var students = users.filter(function (u) { return u.role === 'student'; });
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setText('stat-new-today',   newToday.length);
     }
 
-    // ---- Users table ----
+
     function renderUsersTable() {
         var users   = NeqAuth.getAllUsers();
         var session = NeqAuth.getSession();
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tbody.appendChild(tr);
         });
 
-        // Wire delete buttons
+
         tbody.querySelectorAll('.admin-del-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 var id   = Number(btn.dataset.id);
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Helpers ----
+
     function setText(id, value) {
         var el = document.getElementById(id);
         if (el) el.textContent = value;

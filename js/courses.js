@@ -1,4 +1,4 @@
-// NeqCourse — Courses catalog live filtering
+
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -9,19 +9,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const filterForm   = document.querySelector('form[action="#"]');
     const noResults    = createNoResultsMsg();
 
-    // Level value → badge class fragment
+
     const LEVEL_CLASS = {
         beginner:     'badge-beginner',
         intermediate: 'badge-intermediate',
         advanced:     'badge-advanced'
     };
 
-    // Wire up live events
+
     [searchInput, categorySel, levelSel].forEach(function (el) {
         if (el) el.addEventListener('input', applyFilter);
     });
 
-    // Intercept form submit to prevent page reload
+
     if (filterForm) {
         filterForm.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -29,15 +29,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Reset button clears and resets filter
+
     const resetBtn = filterForm && filterForm.querySelector('[type="reset"]');
     if (resetBtn) {
         resetBtn.addEventListener('click', function () {
-            setTimeout(applyFilter, 0); // run after native reset
+            setTimeout(applyFilter, 0); 
         });
     }
 
-    // ---- Main filter function ----
+
     function applyFilter() {
         const query  = searchInput ? searchInput.value.toLowerCase().trim() : '';
         const catVal = categorySel ? categorySel.value : '';
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             totalVisible += sectionVisible;
         });
 
-        // Show/hide no-results message
+
         const container = document.querySelector('.catalog-section') &&
                           document.querySelector('.catalog-section').parentElement;
         if (container) {

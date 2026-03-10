@@ -1,80 +1,33 @@
-# TWEB - NeqCourse
+# NeqCourse
 
-NeqCourse este o platformă de invatare online construita ca site static multi-page, cu accent pe prezentare moderna, experienta responsive si fluxuri demo pentru autentificare, inscriere la cursuri, dashboard si administrare.
+Platformă de învățare online — site static multi-page.
 
-## Prezentare Generala
+## Ce e în proiect
 
-Proiectul include:
+| Pagină | Fișier |
+|---|---|
+| Landing | `index.html` |
+| Catalog cursuri | `pages/courses.html` |
+| Curs 1–4 | `pages/course1-4.html` |
+| Login / Register | `pages/login.html`, `pages/register.html` |
+| Dashboard | `pages/dashboard.html` |
+| Admin | `pages/admin.html` |
 
-- pagina principala cu hero, cursuri populare si sectiuni de prezentare
-- catalog de cursuri cu filtrare live dupa text, categorie si nivel
-- patru pagini individuale de curs
-- pagini de autentificare si inregistrare
-- dashboard pentru utilizatorul autentificat
-- panou admin pentru gestionarea utilizatorilor in varianta demo
-- componente comune pentru navigatie mobila, countdown, dialoguri si feedback vizual
+**Stilizare:** `css/main.css` — responsive, dark mode, GSAP-ready  
+**JS:** `js/auth.js`, `main.js`, `login.js`, `register.js`, `courses.js`, `course.js`, `dashboard.js`, `admin.js`, `animations.js`
 
-## Structura Proiectului
+Date demo stocate în `localStorage` / `sessionStorage`. Cont admin setat automat la primul rulaj.
 
-- `index.html` — landing page
-- `pages/courses.html` — catalogul complet de cursuri
-- `pages/course1.html` — curs Dezvoltare Web Full-Stack
-- `pages/course2.html` — curs Data Science si Machine Learning
-- `pages/course3.html` — curs Design UI/UX pentru Incepatori
-- `pages/course4.html` — curs Marketing Digital Avansat
-- `pages/login.html` — autentificare utilizator
-- `pages/register.html` — creare cont nou
-- `pages/dashboard.html` — dashboard student/admin dupa login
-- `pages/admin.html` — panou de administrare
-- `css/main.css` — stilizare globala, responsive, dark mode si componente UI
-- `js/main.js` — comportament comun pentru site
-- `js/auth.js` — autentificare demo si persistenta utilizatori/sesiune
-- `js/login.js` — validare si login pentru pagina de autentificare
-- `js/register.js` — validare formular si inregistrare utilizator
-- `js/courses.js` — filtrare live in catalog
-- `js/course.js` — logica pentru paginile individuale de curs
-- `js/dashboard.js` — populare dashboard pentru utilizatorul conectat
-- `js/admin.js` — statistici si gestionare utilizatori in pagina admin
+## Rulare
 
-## Functionalitati Implementate
+```bash
+npm install
+# apoi deschide index.html cu Live Server / Five Server
+```
 
-### Interfata
+## Stack
 
-- layout modern si responsive pentru desktop, tableta si mobil
-- componente vizuale dedicate pentru landing page, auth, register, catalog si pagini de curs
-- dark mode bazat pe `prefers-color-scheme`
-- meniu mobil cu toggle
-- carduri, alerte, badge-uri, breadcrumb, tabele responsive si componente reutilizabile
-
-### Fluxuri JavaScript
-
-- autentificare demo cu sesiune in `sessionStorage`
-- persistenta utilizatorilor in `localStorage`
-- seed automat pentru un cont admin demo
-- auto-login dupa inregistrare
-- afisare conditionata a linkurilor din navigatie in functie de sesiune
-- inscriere la cursuri pentru utilizatori conectati
-- dashboard cu lista cursurilor la care utilizatorul este inscris
-- panou admin cu statistici si stergere utilizatori student
-- countdown persistent pe paginile de curs
-- filtrare live in catalogul de cursuri
-
-## Tehnologii
-
-- HTML5
-- CSS3
-- JavaScript vanilla
-- Font Awesome 6.5
-- Google Fonts
-- `localStorage` si `sessionStorage` pentru demo data persistence
-
-## Rulare Locala
-
-Fiind un proiect static, poate fi rulat foarte simplu:
-
-1. Cloneaza repository-ul.
-2. Deschide folderul proiectului in VS Code.
-3. Ruleaza cu un server static local, de exemplu Live Server, sau deschide `index.html` direct in browser.
+HTML · CSS · Vanilla JS · GSAP · Font Awesome 6.5 · Google Fonts
 
 Pentru o experienta mai stabila este recomandat un server local, mai ales daca vrei sa navighezi intre pagini in mod similar cu deployment-ul real.
 

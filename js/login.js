@@ -1,18 +1,16 @@
-// NeqCourse — Login page functionality
+
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Redirect if already logged in
     if (typeof NeqAuth !== 'undefined' && NeqAuth.isLoggedIn()) {
         window.location.href = NeqAuth.isAdmin() ? 'admin.html' : 'dashboard.html';
         return;
     }
 
-    // ---- Show / Hide Password ----
     addPasswordToggle(document.getElementById('password'));
 
-    // ---- Demo hint ----
+
     var hint = document.createElement('div');
     hint.className = 'alert alert-info auth-demo-hint';
     hint.innerHTML = '<i class="fas fa-info-circle"></i><div>' +
@@ -22,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var legend = document.querySelector('fieldset legend');
     if (legend) legend.after(hint);
 
-    // ---- Form Validation ----
+
     var form = document.querySelector('.auth-form');
     if (!form) return;
 

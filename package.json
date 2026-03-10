@@ -1,0 +1,24 @@
+{
+  "name": "tweb",
+  "version": "1.0.0",
+  "description": "NeqCourse este o platformă de invatare online construita ca site static multi-page, cu accent pe prezentare moderna, experienta responsive si fluxuri demo pentru autentificare, inscriere la cursuri, dashboard si administrare.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProstoAndriuha/NeqCourse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ProstoAndriuha/NeqCourse/issues"
+  },
+  "homepage": "https://github.com/ProstoAndriuha/NeqCourse#readme",
+  "dependencies": {
+    "gsap": "^3.14.2"
+  }
+}
