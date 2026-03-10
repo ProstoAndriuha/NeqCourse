@@ -1,10 +1,3 @@
-/**
- * NeqCourse — Authentication Module
- *
- * SECURITY NOTE: This is a purely client-side demo.
- * Passwords are obfuscated with btoa() — NOT cryptographically secure.
- * In production, use a real backend with bcrypt/argon2 password hashing.
- */
 'use strict';
 
 var NeqAuth = (function () {
@@ -13,9 +6,6 @@ var NeqAuth = (function () {
     var SESSION_KEY = 'neq_session';
     var SALT        = 'neq_2026_salt_x9';
 
-    /* ---- Internal helpers ---- */
-
-    /** Basic obfuscation only — not a real hash */
     function _hash(pw) {
         return btoa(unescape(encodeURIComponent(SALT + ':' + pw)));
     }
@@ -29,7 +19,6 @@ var NeqAuth = (function () {
         localStorage.setItem(USERS_KEY, JSON.stringify(users));
     }
 
-    /* ---- Seed default admin on first run ---- */
     (function _seed() {
         var users = _loadUsers();
         if (!users.some(function (u) { return u.role === 'admin'; })) {
@@ -46,10 +35,9 @@ var NeqAuth = (function () {
         }
     }());
 
-    /* ---- Public API ---- */
+
 
     /**
-     * Register a new student account.
      * @returns {{ ok: boolean, error?: string }}
      */
     function register(email, password, name) {
@@ -73,7 +61,6 @@ var NeqAuth = (function () {
     }
 
     /**
-     * Authenticate user — creates a sessionStorage session on success.
      * @returns {{ ok: boolean, error?: string, session?: object }}
      */
     function login(email, password) {
@@ -84,25 +71,25 @@ var NeqAuth = (function () {
             return { ok: false, error: 'Email sau parolă incorectă.' };
         }
         var session = { id: user.id, name: user.name, email: user.email, role: user.role };
-        sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        localStorage.setItem(SESSION_KEY, JSON.stringify(session));
         return { ok: true, session: session };
     }
 
-    /** Destroy the current session. */
+
     function logout() {
-        sessionStorage.removeItem(SESSION_KEY);
+        localStorage.removeItem(SESSION_KEY);
     }
 
     /** @returns {object|null} Current session or null */
     function getSession() {
-        try { return JSON.parse(sessionStorage.getItem(SESSION_KEY)) || null; }
+        try { return JSON.parse(localStorage.getItem(SESSION_KEY)) || null; }
         catch (_) { return null; }
     }
 
     function isLoggedIn() { return getSession() !== null; }
     function isAdmin()    { var s = getSession(); return s !== null && s.role === 'admin'; }
 
-    /** Return all users (passwords excluded) — admin only. */
+
     function getAllUsers() {
         return _loadUsers().map(function (u) {
             return {
@@ -113,7 +100,7 @@ var NeqAuth = (function () {
         });
     }
 
-    /** Delete a user by id. Only admins can do this; can't delete self or another admin. */
+
     function deleteUser(id) {
         var session = getSession();
         if (!session || session.role !== 'admin') return false;
@@ -125,7 +112,7 @@ var NeqAuth = (function () {
         return true;
     }
 
-    /** Enroll the currently logged-in user in a course. */
+
     function enrollCourse(courseId, courseName) {
         var session = getSession();
         if (!session) return false;
@@ -144,7 +131,7 @@ var NeqAuth = (function () {
         return true;
     }
 
-    /** Return enrolled courses for the currently logged-in user. */
+
     function getEnrolledCourses() {
         var session = getSession();
         if (!session) return [];
@@ -153,8 +140,7 @@ var NeqAuth = (function () {
     }
 
     /**
-     * Redirect to login if not logged in.
-     * @param {string} redirectPath  Default: 'login.html'
+     * @param {string} redirectPath
      * @returns {boolean}
      */
     function requireLogin(redirectPath) {
@@ -166,7 +152,6 @@ var NeqAuth = (function () {
     }
 
     /**
-     * Redirect to index if not admin.
      * @param {string} redirectPath  Default: '../index.html'
      * @returns {boolean}
      */

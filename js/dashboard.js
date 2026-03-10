@@ -1,14 +1,14 @@
-// NeqCourse — Dashboard page
+
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Requires login — redirects to login.html if not authenticated
+
     if (typeof NeqAuth === 'undefined' || !NeqAuth.requireLogin('login.html')) return;
 
     var session = NeqAuth.getSession();
 
-    // ---- Populate header ----
+
     var greetEl = document.getElementById('dash-greeting');
     var emailEl = document.getElementById('dash-email');
     var roleEl  = document.getElementById('dash-role');
@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (emailEl) emailEl.textContent = session.email;
     if (roleEl)  roleEl.textContent  = session.role === 'admin' ? 'Administrator' : 'Student';
 
-    // ---- Admin banner ----
+
     if (session.role === 'admin') {
         var banner = document.getElementById('dash-admin-banner');
         if (banner) banner.style.display = '';
     }
 
-    // ---- Enrolled courses ----
+
     var courses  = NeqAuth.getEnrolledCourses();
     var countEl  = document.getElementById('dash-course-count');
     var listEl   = document.getElementById('dash-course-list');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ---- Profile section ----
+
     var profName  = document.getElementById('dash-profile-name');
     var profEmail = document.getElementById('dash-profile-email');
     var profRole  = document.getElementById('dash-profile-role');
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (profEmail) profEmail.textContent = session.email;
     if (profRole)  profRole.textContent  = session.role === 'admin' ? 'Administrator' : 'Student';
 
-    // ---- Logout button ----
+
     var logoutBtn = document.getElementById('dash-logout-btn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function () {

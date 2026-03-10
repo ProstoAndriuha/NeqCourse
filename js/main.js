@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ---- Mobile Nav Toggle ----
+
     var header = document.querySelector('header');
     var nav    = header && header.querySelector('nav');
 
@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Auth-aware Navigation ----
+
     if (typeof NeqAuth === 'undefined') return;
 
     var session = NeqAuth.getSession();
     var navUl   = document.querySelector('header nav ul');
     if (!navUl) return;
 
-    // Determine whether we're inside /pages/ sub-directory
+
     var inPages  = window.location.pathname.replace(/\\/g, '/').indexOf('/pages/') !== -1;
     var pageBase = inPages ? '' : 'pages/';
     var rootBase = inPages ? '../' : '';
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Dashboard link
+
         var dashHref    = pageBase + 'dashboard.html';
         var dashActive  = path.endsWith('/dashboard.html') ? ' class="active"' : '';
         var dashLi      = document.createElement('li');
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
             '<i class="fas fa-tachometer-alt"></i> ' + escHtml(session.name) + '</a>';
         navUl.appendChild(dashLi);
 
-        // Admin link
+
         if (session.role === 'admin') {
             var adminHref   = pageBase + 'admin.html';
             var adminActive = path.endsWith('/admin.html') ? ' class="active"' : '';
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navUl.appendChild(adminLi);
         }
 
-        // Logout link
+
         var logoutLi = document.createElement('li');
         logoutLi.innerHTML = '<a href="#" class="nav-logout-link">' +
             '<i class="fas fa-sign-out-alt"></i> Deconectare</a>';
