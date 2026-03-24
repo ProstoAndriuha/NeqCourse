@@ -1,100 +1,104 @@
-
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-
     if (typeof NeqAuth !== 'undefined' && NeqAuth.isLoggedIn()) {
         window.location.href = NeqAuth.isAdmin() ? 'admin.html' : 'dashboard.html';
         return;
     }
 
-    addPasswordToggle(document.getElementById('password'));
+    bindPasswordToggle(document.getElementById('password'));
 
-
-    var hint = document.createElement('div');
-    hint.className = 'alert alert-info auth-demo-hint';
-    hint.innerHTML = '<i class="fas fa-info-circle"></i><div>' +
-        '<strong>Demo:</strong> ' +
-        '<code>admin@neqcourse.com</code> / <code>Admin@2026</code>' +
-        '</div>';
-    var legend = document.querySelector('fieldset legend');
-    if (legend) legend.after(hint);
-
+    var hint = document.getElementById('auth-demo-hint');
+    if (hint) hint.hidden = false;
 
     var form = document.querySelector('.auth-form');
     if (!form) return;
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
         removeNotice();
 
-        var emailEl    = document.getElementById('email');
+        var emailEl = document.getElementById('email');
         var passwordEl = document.getElementById('password');
-        var emailVal   = emailEl ? emailEl.value.trim() : '';
-        var passVal    = passwordEl ? passwordEl.value : '';
+        var submitButton = form.querySelector('[type="submit"]');
+        var emailValue = emailEl ? emailEl.value.trim() : '';
+        var passwordValue = passwordEl ? passwordEl.value : '';
 
-        if (!emailVal) {
-            showAlert('danger', 'Introduceți email-ul sau numele de utilizator.');
+        if (!emailValue) {
+            showAlert('danger', 'Introduceti email-ul sau numele de utilizator.');
             if (emailEl) emailEl.focus();
             return;
         }
 
-        if (!passVal) {
-            showAlert('danger', 'Introduceți parola.');
+        if (!passwordValue) {
+            showAlert('danger', 'Introduceti parola.');
             if (passwordEl) passwordEl.focus();
             return;
         }
 
-        if (typeof NeqAuth !== 'undefined') {
-            var result = NeqAuth.login(emailVal, passVal);
-            if (!result.ok) {
-                showAlert('danger', result.error);
-                return;
+        if (submitButton) submitButton.disabled = true;
+
+        try {
+            if (typeof NeqAuth !== 'undefined') {
+                var result = await NeqAuth.login(emailValue, passwordValue);
+                if (!result.ok) {
+                    showAlert('danger', result.error);
+                    return;
+                }
+
+                showAlert('success', 'Autentificare reusita! Redirectionare...');
+                setTimeout(function () {
+                    window.location.href = result.session.role === 'admin' || result.session.role === 'manager' ? 'admin.html' : 'dashboard.html';
+                }, 900);
             }
-            showAlert('success', 'Autentificare reușită! Redirecționare…');
-            setTimeout(function () {
-                window.location.href = result.session.role === 'admin'
-                    ? 'admin.html'
-                    : 'dashboard.html';
-            }, 900);
+        } finally {
+            if (submitButton) submitButton.disabled = false;
         }
     });
 
-    // ---- Helpers ----
-
-    function addPasswordToggle(input) {
+    function bindPasswordToggle(input) {
         if (!input) return;
-        const wrap = input.closest('.input-icon-wrap');
-        if (!wrap) return;
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'pw-eye';
-        btn.setAttribute('aria-label', 'Arată parola');
-        btn.innerHTML = '<i class="fas fa-eye"></i>';
-        wrap.appendChild(btn);
-        btn.addEventListener('click', function () {
-            const show = input.type === 'password';
+
+        var wrap = input.closest('.input-icon-wrap');
+        var button = wrap && wrap.querySelector('[data-password-toggle]');
+        if (!button) return;
+
+        button.addEventListener('click', function () {
+            var show = input.type === 'password';
             input.type = show ? 'text' : 'password';
-            btn.innerHTML = show
-                ? '<i class="fas fa-eye-slash"></i>'
-                : '<i class="fas fa-eye"></i>';
-            btn.setAttribute('aria-label', show ? 'Ascunde parola' : 'Arată parola');
+            button.setAttribute('aria-label', show ? 'Ascunde parola' : 'Arata parola');
+            setIcon(button, show ? 'fa-eye-slash' : 'fa-eye');
         });
     }
 
-    function showAlert(type, msg) {
-        removeNotice();
-        const div = document.createElement('div');
-        div.className = 'alert alert-' + type + ' auth-notice';
-        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-        div.innerHTML = '<i class="fas ' + icon + '"></i><div>' + msg + '</div>';
-        const target = document.querySelector('.auth-card-head');
-        if (target) target.after(div);
+    function showAlert(type, message) {
+        var notice = document.getElementById('auth-notice');
+        var noticeText = document.getElementById('auth-notice-text');
+        var noticeIcon = document.getElementById('auth-notice-icon');
+        if (!notice || !noticeText || !noticeIcon) return;
+
+        notice.classList.remove('alert-success', 'alert-danger');
+        notice.classList.add('alert-' + type);
+        noticeText.textContent = message;
+        notice.hidden = false;
+        setIcon(noticeIcon, type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle');
     }
 
     function removeNotice() {
-        const existing = document.querySelector('.auth-notice');
-        if (existing) existing.remove();
+        var notice = document.getElementById('auth-notice');
+        var noticeText = document.getElementById('auth-notice-text');
+        if (!notice || !noticeText) return;
+
+        notice.hidden = true;
+        notice.classList.remove('alert-success', 'alert-danger');
+        noticeText.textContent = '';
     }
 
+    function setIcon(target, iconClass) {
+        var icon = target.tagName === 'I' ? target : target.querySelector('i');
+        if (!icon) return;
+
+        icon.className = 'fas ' + iconClass;
+        icon.setAttribute('aria-hidden', 'true');
+    }
 });

@@ -1,160 +1,179 @@
-// NeqCourse — Register page functionality
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-
-
     if (typeof NeqAuth !== 'undefined' && NeqAuth.isLoggedIn()) {
         window.location.href = 'dashboard.html';
         return;
     }
 
+    bindPasswordToggle(document.getElementById('password'));
+    bindPasswordToggle(document.getElementById('confirmPassword'));
 
-    addPasswordToggle(document.getElementById('password'));
-    addPasswordToggle(document.getElementById('confirmPassword'));
-
-
-    const passwordEl = document.getElementById('password');
-    const pwBar      = document.getElementById('pwBar');
+    var passwordEl = document.getElementById('password');
+    var pwBar = document.getElementById('pwBar');
     if (passwordEl && pwBar) {
         passwordEl.addEventListener('input', function () {
             pwBar.dataset.level = getStrength(passwordEl.value);
         });
     }
 
-
-    const confirmEl = document.getElementById('confirmPassword');
+    var confirmEl = document.getElementById('confirmPassword');
     if (confirmEl) {
         confirmEl.addEventListener('input', checkMatch);
-        if (passwordEl) passwordEl.addEventListener('input', function () {
-            if (confirmEl.value) checkMatch();
-        });
+        if (passwordEl) {
+            passwordEl.addEventListener('input', function () {
+                if (confirmEl.value) checkMatch();
+            });
+        }
     }
 
-
-    const regForm = document.querySelector('.reg-form');
+    var regForm = document.querySelector('.reg-form');
     if (regForm) {
-        regForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+        regForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
             removeNotice();
 
-            const email   = document.getElementById('email');
-            const pw      = document.getElementById('password');
-            const pwConf  = document.getElementById('confirmPassword');
-            const terms   = regForm.querySelector('input[name="terms"]');
-            const age     = regForm.querySelector('input[name="age"]');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            var passwordConfirm = document.getElementById('confirmPassword');
+            var terms = regForm.querySelector('input[name="terms"]');
+            var age = regForm.querySelector('input[name="age"]');
+            var submitButton = regForm.querySelector('[type="submit"]');
 
             if (!email || !email.value.trim() || !isValidEmail(email.value.trim())) {
-                showAlert('danger', 'Introduceți o adresă de email validă.');
+                showAlert('danger', 'Introduceti o adresa de email valida.');
                 if (email) email.focus();
                 return;
             }
 
-            if (!pw || pw.value.length < 8) {
-                showAlert('danger', 'Parola trebuie să aibă cel puțin 8 caractere.');
-                if (pw) pw.focus();
+            if (!password || password.value.length < 8) {
+                showAlert('danger', 'Parola trebuie sa aiba cel putin 8 caractere.');
+                if (password) password.focus();
                 return;
             }
 
-            if (pwConf && pw.value !== pwConf.value) {
+            if (passwordConfirm && password.value !== passwordConfirm.value) {
                 showAlert('danger', 'Parolele nu coincid.');
-                pwConf.focus();
+                passwordConfirm.focus();
                 return;
             }
 
             if (terms && !terms.checked) {
-                showAlert('danger', 'Trebuie să accepți Termenii și Politica de Confidențialitate.');
+                showAlert('danger', 'Trebuie sa accepti Termenii si Politica de Confidentialitate.');
                 return;
             }
 
             if (age && !age.checked) {
-                showAlert('danger', 'Trebuie să confirmi că ai cel puțin 16 ani.');
+                showAlert('danger', 'Trebuie sa confirmi ca ai cel putin 16 ani.');
                 return;
             }
 
-            if (typeof NeqAuth !== 'undefined') {
-                var emailVal = document.getElementById('email').value.trim();
-                var pwVal    = document.getElementById('password').value;
-                var result   = NeqAuth.register(emailVal, pwVal);
-                if (!result.ok) {
-                    showAlert('danger', result.error);
-                    return;
+            var firstName = (document.getElementById('firstName') || {}).value || email.value.trim().split('@')[0];
+            var lastName = (document.getElementById('lastName') || {}).value || 'Student';
+
+            if (submitButton) submitButton.disabled = true;
+
+            try {
+                if (typeof NeqAuth !== 'undefined') {
+                    var emailValue = email.value.trim();
+                    var passwordValue = password.value;
+                    var registerResult = await NeqAuth.register(emailValue, passwordValue, firstName.trim(), lastName.trim());
+                    if (!registerResult.ok) {
+                        showAlert('danger', registerResult.error);
+                        return;
+                    }
+
+                    var loginResult = await NeqAuth.login(emailValue, passwordValue);
+                    if (!loginResult.ok) {
+                        showAlert('danger', loginResult.error);
+                        return;
+                    }
                 }
 
-                NeqAuth.login(emailVal, pwVal);
+                showAlert('success', 'Cont creat cu succes! Bine ai venit la NeqCourse!');
+                regForm.reset();
+                if (pwBar) pwBar.dataset.level = '0';
+                setTimeout(function () {
+                    window.location.href = 'dashboard.html';
+                }, 1200);
+            } finally {
+                if (submitButton) submitButton.disabled = false;
             }
-
-            showAlert('success', 'Cont creat cu succes! Bine ai venit la NeqCourse!');
-            regForm.reset();
-            if (pwBar) pwBar.dataset.level = '0';
-            setTimeout(function () {
-                window.location.href = 'dashboard.html';
-            }, 1200);
         });
     }
 
-
-    function addPasswordToggle(input) {
+    function bindPasswordToggle(input) {
         if (!input) return;
-        const wrap = input.closest('.input-icon-wrap');
-        if (!wrap) return;
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'pw-eye';
-        btn.setAttribute('aria-label', 'Arată parola');
-        btn.innerHTML = '<i class="fas fa-eye"></i>';
-        wrap.appendChild(btn);
-        btn.addEventListener('click', function () {
-            const show = input.type === 'password';
+
+        var wrap = input.closest('.input-icon-wrap');
+        var button = wrap && wrap.querySelector('[data-password-toggle]');
+        if (!button) return;
+
+        button.addEventListener('click', function () {
+            var show = input.type === 'password';
             input.type = show ? 'text' : 'password';
-            btn.innerHTML = show
-                ? '<i class="fas fa-eye-slash"></i>'
-                : '<i class="fas fa-eye"></i>';
-            btn.setAttribute('aria-label', show ? 'Ascunde parola' : 'Arată parola');
+            button.setAttribute('aria-label', show ? 'Ascunde parola' : 'Arata parola');
+            setIcon(button, show ? 'fa-eye-slash' : 'fa-eye');
         });
     }
 
-    function getStrength(pw) {
-        if (!pw) return 0;
-        let s = 0;
-        if (pw.length >= 8)  s++;
-        if (pw.length >= 12) s++;
-        if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) s++;
-        if (/[0-9]/.test(pw)) s++;
-        if (/[^A-Za-z0-9]/.test(pw)) s++;
-        return Math.min(s, 4);
+    function getStrength(password) {
+        if (!password) return 0;
+        var strength = 0;
+        if (password.length >= 8) strength++;
+        if (password.length >= 12) strength++;
+        if (/[A-Z]/.test(password) && /[a-z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        return Math.min(strength, 4);
     }
 
     function checkMatch() {
-        const pw     = document.getElementById('password');
-        const pwConf = document.getElementById('confirmPassword');
-        if (!pw || !pwConf) return;
-        if (pwConf.value && pw.value !== pwConf.value) {
-            pwConf.setCustomValidity('Parolele nu coincid');
-            pwConf.classList.add('input-error');
+        var password = document.getElementById('password');
+        var passwordConfirm = document.getElementById('confirmPassword');
+        if (!password || !passwordConfirm) return;
+
+        if (passwordConfirm.value && password.value !== passwordConfirm.value) {
+            passwordConfirm.setCustomValidity('Parolele nu coincid');
+            passwordConfirm.classList.add('input-error');
         } else {
-            pwConf.setCustomValidity('');
-            pwConf.classList.remove('input-error');
+            passwordConfirm.setCustomValidity('');
+            passwordConfirm.classList.remove('input-error');
         }
     }
 
-    function isValidEmail(v) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     }
 
-    function showAlert(type, msg) {
-        removeNotice();
-        const div = document.createElement('div');
-        div.className = 'alert alert-' + type + ' reg-notice';
-        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-        div.innerHTML = '<i class="fas ' + icon + '"></i><div>' + msg + '</div>';
-        const btn = document.querySelector('.reg-form .btn-full');
-        if (btn) btn.before(div);
+    function showAlert(type, message) {
+        var notice = document.getElementById('reg-notice');
+        var noticeText = document.getElementById('reg-notice-text');
+        var noticeIcon = document.getElementById('reg-notice-icon');
+        if (!notice || !noticeText || !noticeIcon) return;
+
+        notice.classList.remove('alert-success', 'alert-danger');
+        notice.classList.add('alert-' + type);
+        noticeText.textContent = message;
+        notice.hidden = false;
+        setIcon(noticeIcon, type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle');
     }
 
     function removeNotice() {
-        const el = document.querySelector('.reg-notice');
-        if (el) el.remove();
+        var notice = document.getElementById('reg-notice');
+        var noticeText = document.getElementById('reg-notice-text');
+        if (!notice || !noticeText) return;
+
+        notice.hidden = true;
+        notice.classList.remove('alert-success', 'alert-danger');
+        noticeText.textContent = '';
     }
 
+    function setIcon(target, iconClass) {
+        var icon = target.tagName === 'I' ? target : target.querySelector('i');
+        if (!icon) return;
+
+        icon.className = 'fas ' + iconClass;
+        icon.setAttribute('aria-hidden', 'true');
+    }
 });

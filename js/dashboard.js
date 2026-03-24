@@ -1,89 +1,132 @@
-
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
-
-
+document.addEventListener('DOMContentLoaded', async function () {
     if (typeof NeqAuth === 'undefined' || !NeqAuth.requireLogin('login.html')) return;
 
-    var session = NeqAuth.getSession();
-
-
-    var greetEl = document.getElementById('dash-greeting');
+    var greetingText = document.getElementById('dash-greeting-text');
     var emailEl = document.getElementById('dash-email');
-    var roleEl  = document.getElementById('dash-role');
+    var roleEl = document.getElementById('dash-role');
+    var courseCountEl = document.getElementById('dash-course-count');
+    var completedCountEl = document.getElementById('dash-completed-count');
+    var emptyState = document.getElementById('dash-empty-state');
+    var itemsEl = document.getElementById('dash-course-items');
+    var template = document.getElementById('dash-course-item-template');
+    var profileName = document.getElementById('dash-profile-name');
+    var profileEmail = document.getElementById('dash-profile-email');
+    var profileRole = document.getElementById('dash-profile-role');
 
-    if (greetEl) greetEl.innerHTML = '<i class="fas fa-tachometer-alt"></i> Bun venit, ' + escHtml(session.name) + '!';
-    if (emailEl) emailEl.textContent = session.email;
-    if (roleEl)  roleEl.textContent  = session.role === 'admin' ? 'Administrator' : 'Student';
+    try {
+        var user = await NeqAuth.getCurrentUser();
+        var enrollments = await NeqAuth.fetchMyEnrollments();
+        var items = enrollments.items || [];
+        var completedItems = items.filter(function (item) {
+            return item.progressPercent >= 100;
+        });
 
+        if (greetingText) greetingText.textContent = 'Bun venit, ' + [user.firstName, user.lastName].filter(Boolean).join(' ') + '!';
+        if (emailEl) emailEl.textContent = user.email;
+        if (roleEl) roleEl.textContent = humanizeRole(user.role);
+        if (profileName) profileName.textContent = [user.firstName, user.lastName].filter(Boolean).join(' ');
+        if (profileEmail) profileEmail.textContent = user.email;
+        if (profileRole) profileRole.textContent = humanizeRole(user.role);
+        if (courseCountEl) courseCountEl.textContent = String(items.length);
+        if (completedCountEl) completedCountEl.textContent = String(completedItems.length);
 
-    if (session.role === 'admin') {
-        var banner = document.getElementById('dash-admin-banner');
-        if (banner) banner.style.display = '';
-    }
-
-
-    var courses  = NeqAuth.getEnrolledCourses();
-    var countEl  = document.getElementById('dash-course-count');
-    var listEl   = document.getElementById('dash-course-list');
-
-    if (countEl) countEl.textContent = courses.length;
-
-    if (listEl) {
-        if (courses.length === 0) {
-            listEl.innerHTML =
-                '<div class="dash-empty">' +
-                    '<i class="fas fa-book-open"></i>' +
-                    '<p>Nu ești înscris la niciun curs.</p>' +
-                    '<a href="courses.html" class="btn btn-primary" style="margin-top:.75rem">' +
-                        '<i class="fas fa-search"></i> Explorează cursurile disponibile' +
-                    '</a>' +
-                '</div>';
-        } else {
-            var html = '<div class="dash-course-items">';
-            courses.forEach(function (c) {
-                var date = new Date(c.enrolledAt).toLocaleDateString('ro-RO', {
-                    day: '2-digit', month: 'long', year: 'numeric'
-                });
-                html +=
-                    '<div class="dash-course-item">' +
-                        '<i class="fas fa-graduation-cap dash-course-icon"></i>' +
-                        '<div class="dash-course-info">' +
-                            '<strong>' + escHtml(c.name) + '</strong>' +
-                            '<small>Înscris pe ' + date + '</small>' +
-                        '</div>' +
-                        '<span class="badge badge-beginner">În progres</span>' +
-                    '</div>';
-            });
-            html += '</div>';
-            listEl.innerHTML = html;
+        if (user.role === 'admin' || user.role === 'manager') {
+            var banner = document.getElementById('dash-admin-banner');
+            if (banner) banner.style.display = '';
         }
+
+        if (itemsEl) {
+            itemsEl.replaceChildren();
+            if (!items.length) {
+                if (emptyState) emptyState.hidden = false;
+                itemsEl.hidden = true;
+            } else {
+                if (emptyState) emptyState.hidden = true;
+                itemsEl.hidden = false;
+                items.forEach(function (item) {
+                    itemsEl.appendChild(createCourseItem(item));
+                });
+            }
+        }
+    } catch (error) {
+        if (greetingText) greetingText.textContent = 'Dashboard indisponibil';
+        if (emailEl) emailEl.textContent = error.message || 'Nu am putut încărca datele.';
     }
-
-
-    var profName  = document.getElementById('dash-profile-name');
-    var profEmail = document.getElementById('dash-profile-email');
-    var profRole  = document.getElementById('dash-profile-role');
-
-    if (profName)  profName.textContent  = session.name;
-    if (profEmail) profEmail.textContent = session.email;
-    if (profRole)  profRole.textContent  = session.role === 'admin' ? 'Administrator' : 'Student';
-
 
     var logoutBtn = document.getElementById('dash-logout-btn');
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', function () {
-            NeqAuth.logout();
-            window.location.href = '../index.html';
+        logoutBtn.addEventListener('click', async function () {
+            await NeqAuth.logout();
+            window.location.href = '/index.html';
         });
     }
 
-    function escHtml(str) {
-        return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
+    function createCourseItem(course) {
+        var fragment = template && template.content
+            ? template.content.firstElementChild.cloneNode(true)
+            : buildCourseItemFallback();
+        var date = course.lastActivityAt ? new Date(course.lastActivityAt).toLocaleDateString('ro-RO', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric'
+        }) : 'fără activitate recentă';
+
+        fragment.querySelector('[data-dash-course-name]').textContent = course.title;
+        fragment.querySelector('[data-dash-course-date]').textContent = 'Progres ' + course.progressPercent + '% – activitate ' + date;
+
+        var badge = fragment.querySelector('.badge');
+        if (badge) {
+            badge.textContent = course.progressPercent >= 100 ? 'Finalizat' : 'În progres';
+        }
+
+        var info = fragment.querySelector('.dash-course-info');
+        if (info) {
+            var link = document.createElement('a');
+            link.href = 'course.html?slug=' + encodeURIComponent(course.slug);
+            link.className = 'btn btn-outline btn-compact';
+            link.innerHTML = '<i class="fas fa-play"></i> Continuă';
+            info.appendChild(link);
+        }
+
+        return fragment;
     }
 
+    function buildCourseItemFallback() {
+        var item = document.createElement('div');
+        item.className = 'dash-course-item';
+
+        var icon = document.createElement('i');
+        icon.className = 'fas fa-graduation-cap dash-course-icon';
+        icon.setAttribute('aria-hidden', 'true');
+
+        var info = document.createElement('div');
+        info.className = 'dash-course-info';
+
+        var name = document.createElement('strong');
+        name.setAttribute('data-dash-course-name', '');
+
+        var date = document.createElement('small');
+        date.setAttribute('data-dash-course-date', '');
+
+        var badge = document.createElement('span');
+        badge.className = 'badge badge-beginner';
+        badge.textContent = 'In progres';
+
+        info.appendChild(name);
+        info.appendChild(date);
+        item.appendChild(icon);
+        item.appendChild(info);
+        item.appendChild(badge);
+
+        return item;
+    }
+
+    function humanizeRole(role) {
+        if (role === 'admin') return 'Administrator';
+        if (role === 'manager') return 'Manager';
+        if (role === 'teacher') return 'Profesor';
+        return 'Student';
+    }
 });

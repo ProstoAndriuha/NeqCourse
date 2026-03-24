@@ -1,96 +1,147 @@
-
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
+    var searchInput = document.getElementById('search');
+    var categorySel = document.getElementById('category');
+    var levelSel = document.getElementById('level');
+    var filterForm = document.getElementById('catalog-filter-form');
+    var noResults = document.getElementById('catalog-no-results');
+    var listEl = document.getElementById('catalog-list');
+    var stateEl = document.getElementById('catalog-state');
 
-    const searchInput  = document.getElementById('search');
-    const categorySel  = document.getElementById('category');
-    const levelSel     = document.getElementById('level');
-    const filterForm   = document.querySelector('form[action="#"]');
-    const noResults    = createNoResultsMsg();
+    if (!listEl || typeof NeqAuth === 'undefined') {
+        return;
+    }
 
-
-    const LEVEL_CLASS = {
-        beginner:     'badge-beginner',
-        intermediate: 'badge-intermediate',
-        advanced:     'badge-advanced'
-    };
-
-
-    [searchInput, categorySel, levelSel].forEach(function (el) {
-        if (el) el.addEventListener('input', applyFilter);
+    [searchInput, categorySel, levelSel].forEach(function (element) {
+        if (element) {
+            element.addEventListener('input', debounce(loadCourses, 250));
+        }
     });
 
-
     if (filterForm) {
-        filterForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            applyFilter();
+        filterForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            loadCourses();
         });
     }
 
+    loadCourses();
 
-    const resetBtn = filterForm && filterForm.querySelector('[type="reset"]');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', function () {
-            setTimeout(applyFilter, 0); 
-        });
-    }
+    async function loadCourses() {
+        setState('Se încărcă lista cursurilor...');
+        noResults.hidden = true;
 
-
-    function applyFilter() {
-        const query  = searchInput ? searchInput.value.toLowerCase().trim() : '';
-        const catVal = categorySel ? categorySel.value : '';
-        const lvlVal = levelSel    ? levelSel.value    : '';
-
-        let totalVisible = 0;
-        const sections = document.querySelectorAll('.catalog-section');
-
-        sections.forEach(function (section) {
-            const sectionCat = section.dataset.category || '';
-            let sectionVisible = 0;
-
-            section.querySelectorAll('.course-card').forEach(function (card) {
-                const title  = (card.querySelector('h3')  || {}).textContent || '';
-                const desc   = (card.querySelector('p')   || {}).textContent || '';
-                const badge  = card.querySelector('.badge');
-                const badgeCls = badge ? badge.className : '';
-
-                const matchText  = !query  || (title + ' ' + desc).toLowerCase().includes(query);
-                const matchCat   = !catVal || sectionCat === catVal;
-                const matchLevel = !lvlVal || badgeCls.includes(LEVEL_CLASS[lvlVal] || '');
-
-                const visible = matchText && matchCat && matchLevel;
-                card.style.display = visible ? '' : 'none';
-                if (visible) sectionVisible++;
+        try {
+            var response = await NeqAuth.fetchCourses({
+                search: searchInput && searchInput.value ? searchInput.value.trim() : '',
+                category: categorySel && categorySel.value ? categorySel.value : '',
+                level: levelSel && levelSel.value ? levelSel.value : ''
             });
 
-            section.style.display = sectionVisible > 0 ? '' : 'none';
-            totalVisible += sectionVisible;
-        });
-
-
-        const container = document.querySelector('.catalog-section') &&
-                          document.querySelector('.catalog-section').parentElement;
-        if (container) {
-            if (totalVisible === 0) {
-                container.appendChild(noResults);
-                noResults.style.display = '';
-            } else {
-                noResults.style.display = 'none';
-            }
+            renderCourses(response.items || []);
+        } catch (error) {
+            setState(error.message || 'Nu am putut încărca cursurile.');
         }
     }
 
-    function createNoResultsMsg() {
-        const div = document.createElement('div');
-        div.className = 'catalog-no-results';
-        div.innerHTML =
-            '<i class="fas fa-search"></i>' +
-            '<p>Niciun curs nu corespunde criteriilor selectate.</p>' +
-            '<p><small>Încearcă să modifici cuvintele cheie sau filtrele.</small></p>';
-        div.style.display = 'none';
-        return div;
+    function renderCourses(courses) {
+        listEl.replaceChildren();
+        if (!courses.length) {
+            setState('Nu există cursuri pentru filtrele selectate.');
+            noResults.hidden = false;
+            return;
+        }
+
+        if (stateEl) {
+            stateEl.hidden = true;
+            stateEl.textContent = '';
+        }
+
+        courses.forEach(function (course) {
+            listEl.appendChild(createCourseCard(course));
+        });
     }
 
+    function createCourseCard(course) {
+        var article = document.createElement('article');
+        article.className = 'course-card';
+
+        var title = document.createElement('h3');
+        var titleLink = document.createElement('a');
+        titleLink.href = 'course.html?slug=' + encodeURIComponent(course.slug);
+        titleLink.textContent = course.title;
+        title.appendChild(titleLink);
+
+        var meta = document.createElement('div');
+        meta.className = 'course-meta';
+        meta.innerHTML = '' +
+            '<span><i class="fas fa-user-tie"></i> ' + escapeHtml(course.teacher.displayName) + '</span>' +
+            '<span><i class="fas fa-sack-dollar"></i> ' + Number(course.priceAmount).toFixed(2) + ' ' + escapeHtml(course.currency) + '</span>';
+
+        var description = document.createElement('p');
+        description.textContent = 'Curs disponibil în catalogul live. Deschide pagina cursului pentru checkout, acces și progres.';
+
+        var actions = document.createElement('div');
+        actions.className = 'btn-group';
+
+        var detailsLink = document.createElement('a');
+        detailsLink.href = titleLink.href;
+        detailsLink.className = 'btn btn-primary';
+        detailsLink.innerHTML = '<i class="fas fa-arrow-right"></i> Vezi cursul';
+        actions.appendChild(detailsLink);
+
+        if (NeqAuth.isLoggedIn()) {
+            var buyButton = document.createElement('button');
+            buyButton.type = 'button';
+            buyButton.className = 'btn btn-outline';
+            buyButton.innerHTML = '<i class="fas fa-cart-plus"></i> Cumpără demo';
+            buyButton.addEventListener('click', async function () {
+                buyButton.disabled = true;
+                buyButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se procesează';
+                try {
+                    await NeqAuth.purchaseCourse(course.id);
+                    window.location.href = 'course.html?slug=' + encodeURIComponent(course.slug);
+                } catch (error) {
+                    alert(error.message || 'Checkout eșuat.');
+                    buyButton.disabled = false;
+                    buyButton.innerHTML = '<i class="fas fa-cart-plus"></i> Cumpără demo';
+                }
+            });
+            actions.appendChild(buyButton);
+        }
+
+        article.appendChild(title);
+        article.appendChild(meta);
+        article.appendChild(description);
+        article.appendChild(actions);
+        return article;
+    }
+
+    function setState(message) {
+        if (!stateEl) {
+            return;
+        }
+
+        stateEl.hidden = false;
+        stateEl.textContent = message;
+        listEl.replaceChildren();
+    }
+
+    function debounce(fn, wait) {
+        var timeout = 0;
+        return function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(fn, wait);
+        };
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
 });

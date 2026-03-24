@@ -2,9 +2,22 @@
   "name": "tweb",
   "version": "1.0.0",
   "description": "NeqCourse este o platformă de invatare online construita ca site static multi-page, cu accent pe prezentare moderna, experienta responsive si fluxuri demo pentru autentificare, inscriere la cursuri, dashboard si administrare.",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "db:dev:start": "tsx backend/scripts/dev-postgres.ts",
+    "db:migrate": "tsx backend/scripts/migrate.ts",
+    "db:seed": "tsx backend/scripts/seed.ts",
+    "db:check": "tsx backend/scripts/verify-scenarios.ts",
+    "db:cleanup-auth": "tsx backend/scripts/cleanup-auth-state.ts",
+    "db:rebuild-schema": "tsx backend/scripts/rebuild-schema.ts",
+    "db:local:smoke": "tsx backend/scripts/local-smoke.ts",
+    "test": "npm run typecheck",
+    "test:integration": "npm run build && node dist/tests/integration/routes.test.js",
+    "db:repair-seeded-content": "tsx backend/scripts/repair-seeded-content.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +32,22 @@
   },
   "homepage": "https://github.com/ProstoAndriuha/NeqCourse#readme",
   "dependencies": {
-    "gsap": "^3.14.2"
+    "@fastify/sensible": "^6.0.4",
+    "@fastify/static": "^9.0.0",
+    "dotenv": "^17.3.1",
+    "drizzle-orm": "^0.45.1",
+    "embedded-postgres": "^18.3.0-beta.16",
+    "fastify": "^5.8.2",
+    "gsap": "^3.14.2",
+    "pg": "^8.20.0",
+    "redis": "^5.11.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.18.0",
+    "drizzle-kit": "^0.31.9",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }

@@ -27,7 +27,10 @@
         <section class="dashboard-hero">
             <div class="dashboard-hero-text">
                 <p class="section-eyebrow">Contul meu</p>
-                <h2 id="dash-greeting"><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                <h2 id="dash-greeting">
+                    <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                    <span id="dash-greeting-text">Dashboard</span>
+                </h2>
                 <p id="dash-email" class="dash-subtitle"></p>
             </div>
             <div class="dashboard-hero-right">
@@ -76,7 +79,16 @@
                     <i class="fas fa-plus"></i> Adaugă curs
                 </a>
             </div>
-            <div id="dash-course-list" class="dash-course-list"></div>
+            <div id="dash-course-list" class="dash-course-list">
+                <div class="dash-empty" id="dash-empty-state" hidden>
+                    <i class="fas fa-book-open" aria-hidden="true"></i>
+                    <p>Nu esti inscris la niciun curs.</p>
+                    <a href="courses.html" class="btn btn-primary" style="margin-top:.75rem">
+                        <i class="fas fa-search"></i> Exploreaza cursurile disponibile
+                    </a>
+                </div>
+                <div class="dash-course-items" id="dash-course-items" hidden></div>
+            </div>
         </section>
 
         <!-- Profile -->
@@ -115,6 +127,17 @@
         <p><a href="../index.html">← Înapoi la pagina principală</a></p>
         <p>&copy; 2026 NeqCourse. Toate drepturile rezervate.</p>
     </footer>
+
+    <template id="dash-course-item-template">
+        <div class="dash-course-item">
+            <i class="fas fa-graduation-cap dash-course-icon" aria-hidden="true"></i>
+            <div class="dash-course-info">
+                <strong data-dash-course-name></strong>
+                <small data-dash-course-date></small>
+            </div>
+            <span class="badge badge-beginner">In progres</span>
+        </div>
+    </template>
 
     <script src="../node_modules/gsap/dist/gsap.min.js"></script>
     <script src="../node_modules/gsap/dist/ScrollTrigger.min.js"></script>

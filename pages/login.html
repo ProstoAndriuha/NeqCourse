@@ -56,9 +56,22 @@
                     <div>Conexiunea ta este <strong>securizată</strong>. Datele sunt criptate cu SSL/TLS.</div>
                 </div>
 
+                <div class="alert auth-notice" id="auth-notice" hidden>
+                    <i class="fas fa-exclamation-circle" id="auth-notice-icon" aria-hidden="true"></i>
+                    <div id="auth-notice-text"></div>
+                </div>
+
                 <form action="dashboard.html" method="post" novalidate class="auth-form">
                 <fieldset>
                     <legend><i class="fas fa-user-circle"></i> Date de Autentificare</legend>
+
+                    <div class="alert alert-info auth-demo-hint" id="auth-demo-hint" hidden>
+                        <i class="fas fa-info-circle" aria-hidden="true"></i>
+                        <div>
+                            <strong>Demo:</strong>
+                            <code>admin@neqcourse.com</code> / <code>Admin@2026</code>
+                        </div>
+                    </div>
 
                     <label for="email">Email sau Nume Utilizator: <sup>*</sup></label>
                     <div class="input-icon-wrap">
@@ -70,6 +83,9 @@
                     <div class="input-icon-wrap">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="password" name="password" required placeholder="Parola ta" autocomplete="current-password">
+                        <button type="button" class="pw-eye" data-password-toggle aria-label="Arata parola">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
                     </div>
 
                     <label for="twofa" class="auth-spaced-label">Cod 2FA (dacă este activat):</label>

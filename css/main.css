@@ -4437,6 +4437,8 @@ dialog::backdrop {
 .admin-stat-card.admin-stat-blue   { border-top-color: var(--primary); }
 .admin-stat-card.admin-stat-purple { border-top-color: #7c3aed; }
 .admin-stat-card.admin-stat-green  { border-top-color: var(--success); }
+.admin-stat-card.admin-stat-orange { border-top-color: #f59e0b; }
+.admin-stat-card.admin-stat-teal   { border-top-color: #14b8a6; }
 
 .admin-stat-num {
     font-size: 2.25rem;
@@ -4449,6 +4451,8 @@ dialog::backdrop {
 .admin-stat-card.admin-stat-blue   .admin-stat-num { color: var(--primary); }
 .admin-stat-card.admin-stat-purple .admin-stat-num { color: #7c3aed; }
 .admin-stat-card.admin-stat-green  .admin-stat-num { color: var(--success); }
+.admin-stat-card.admin-stat-orange .admin-stat-num { color: #f59e0b; }
+.admin-stat-card.admin-stat-teal   .admin-stat-num { color: #14b8a6; }
 
 .admin-stat-label {
     font-size: 0.82rem;
@@ -4569,6 +4573,157 @@ dialog::backdrop {
     font-size: 0.9em;
 }
 
+/* ─── Admin role select dropdown ─── */
+.admin-role-select {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: #fff;
+    color: var(--gray-700);
+    cursor: pointer;
+}
+
+.admin-role-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* ─── Admin modals ─── */
+.admin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.15s ease;
+}
+
+.admin-modal-overlay.is-open {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.admin-modal {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 90%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.2s var(--ease);
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+.admin-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.admin-modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.admin-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+}
+
+.admin-modal-close:hover {
+    color: var(--gray-800);
+}
+
+.admin-modal form {
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.admin-form-row {
+    margin-bottom: 0.9rem;
+}
+
+.admin-form-row label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.3rem;
+}
+
+.admin-form-row input,
+.admin-form-row select,
+.admin-form-row textarea {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--gray-800);
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.admin-form-row input:focus,
+.admin-form-row select:focus,
+.admin-form-row textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.admin-form-row-inline {
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-form-row-inline > div {
+    flex: 1;
+}
+
+.admin-form-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.admin-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.admin-actions-cell,
+.admin-course-actions {
+    white-space: nowrap;
+}
+
 /* Late dark-mode overrides for dashboard/admin cards.
    These are placed at the end so they win over the base component rules above. */
 @media (prefers-color-scheme: dark) {
@@ -4654,6 +4809,14 @@ dialog::backdrop {
         color: #6ee7b7;
     }
 
+    .admin-stat-card.admin-stat-orange .admin-stat-num {
+        color: #fbbf24;
+    }
+
+    .admin-stat-card.admin-stat-teal .admin-stat-num {
+        color: #5eead4;
+    }
+
     .admin-role-admin {
         background: rgba(124, 58, 237, 0.18);
         color: #ddd6fe;
@@ -4664,5 +4827,50 @@ dialog::backdrop {
         background: rgba(79, 70, 229, 0.18);
         color: #c7d2fe;
         border-color: rgba(129, 140, 248, 0.28);
+    }
+
+    .admin-role-select {
+        background: rgba(15, 23, 42, 0.9);
+        color: #e2e8f0;
+        border-color: rgba(148, 163, 184, 0.25);
+    }
+
+    .admin-modal {
+        background: #1e293b;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .admin-modal-header {
+        border-bottom-color: rgba(148, 163, 184, 0.15);
+    }
+
+    .admin-modal-header h3 {
+        color: #f1f5f9;
+    }
+
+    .admin-modal-close {
+        color: #94a3b8;
+    }
+
+    .admin-modal-close:hover {
+        color: #f1f5f9;
+    }
+
+    .admin-form-row label {
+        color: #cbd5e1;
+    }
+
+    .admin-form-row input,
+    .admin-form-row select,
+    .admin-form-row textarea {
+        background: rgba(15, 23, 42, 0.8);
+        color: #e2e8f0;
+        border-color: rgba(148, 163, 184, 0.25);
+    }
+
+    .admin-form-error {
+        background: rgba(185, 28, 28, 0.15);
+        border-color: rgba(248, 113, 113, 0.3);
+        color: #fca5a5;
     }
 }

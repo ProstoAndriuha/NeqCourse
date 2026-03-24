@@ -2,3 +2,27 @@ node_modules/
 package-lock.json
 .DS_Store
 Thumbs.db
+.env
+dist/
+.local/
+
+# Embedded Postgres data
+data/
+*.pid
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Desktop.ini
+ehthumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp scripts
+_truncate.js
